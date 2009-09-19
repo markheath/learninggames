@@ -12,7 +12,7 @@ namespace LearningGames.Numbers
 {
     public class NumbersViewModel : ViewModelBase
     {
-        SumQuiz quiz;
+        IQuiz quiz;
         string answer;        
         QuestionState questionState;
 
@@ -22,7 +22,7 @@ namespace LearningGames.Numbers
         private EventFirer startWrongAnswer;
         private EventFirer setTextboxFocus;
 
-        public NumbersViewModel(SumQuiz quiz)
+        public NumbersViewModel(IQuiz quiz)
         {
             this.quiz = quiz;            
             startCorrectAnswer = new EventFirer();
@@ -69,14 +69,14 @@ namespace LearningGames.Numbers
             QuestionState = QuestionState.Unanswered;
             setTextboxFocus.Fire(this);
             // might not have changed, but fire here anyway
-            RaisePropertyChangedEvent("SumText");            
+            RaisePropertyChangedEvent("Sum");            
         }
 
-        public string SumText
+        public object Sum
         {
             get 
             { 
-                return quiz.CurrentSum.ToString(); 
+                return quiz.CurrentQuestionContent; 
             }
         }
 

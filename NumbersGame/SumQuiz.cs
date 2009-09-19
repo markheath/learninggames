@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
-    public class SumQuiz
+    public class SumQuiz : IQuiz
     {
         ISumProvider sumProvider;
         Sum currentSum;
@@ -34,6 +35,14 @@ namespace LearningGames.Numbers
             get
             {
                 return currentSum;
+            }
+        }
+
+        public object CurrentQuestionContent
+        {
+            get
+            {
+                return currentSum.Content;
             }
         }
     }

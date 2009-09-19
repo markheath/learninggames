@@ -53,6 +53,7 @@
     <Compile Include="FocusHelpers.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="IGame.cs" />
+    <Compile Include="IQuiz.cs" />
     <Compile Include="ListUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
