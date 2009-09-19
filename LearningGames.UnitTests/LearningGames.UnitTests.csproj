@@ -35,6 +35,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\NUnit\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -47,12 +53,24 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NumbersGame\AdditionTests.cs" />
+    <Compile Include="NumbersGame\DivisionTests.cs" />
+    <Compile Include="NumbersGame\MultiplicationTests.cs" />
+    <Compile Include="NumbersGame\NumbersGameTests.cs" />
+    <Compile Include="NumbersGame\SubtractionTests.cs" />
     <Compile Include="NumbersGame\SumQuizTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LearningGames.Framework\LearningGames.Framework.csproj">
+      <Project>{2C9AB6C7-E70C-4D5B-91C1-28B03C98A2AF}</Project>
+      <Name>LearningGames.Framework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NumbersGame\NumbersGame.csproj">
       <Project>{CEEF7CEC-8693-43B1-BCFC-36A9BD7C3455}</Project>
       <Name>NumbersGame</Name>

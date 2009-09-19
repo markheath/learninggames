@@ -9,7 +9,7 @@ using System.Windows.Controls;
 namespace LearningGames.Numbers
 {
     [Export(typeof(IGame))]
-    class NumbersGame : IGame
+    public class NumbersGame : IGame
     {
         Page gui;
         public NumbersGame()
@@ -35,6 +35,5 @@ namespace LearningGames.Numbers
         {
             get { return "Numbers"; }
         }
-
     }
 }
