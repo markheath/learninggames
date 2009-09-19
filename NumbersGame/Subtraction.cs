@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LearningGames.Numbers
 {
-    class Subtraction : Sum
+    public class Subtraction : Sum
     {
         public int First { get; private set; }
         public int Second { get; private set; }
