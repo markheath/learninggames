@@ -28,42 +28,42 @@ namespace LearningGames.Numbers
                 (int)Operator.Divide + 1;
             Operator op = Operator.Multiply; //(Operator)random.Next(max);
             Sum sum = null;
+            int first;
+            int second;
             switch (op)
             {
                 case Operator.Add:
-                    sum = new Addition();
-                    sum.First = random.Next(1, 11);
-                    sum.Second = random.Next(1, 11);
+                    sum = new Addition(random.Next(1, 11), random.Next(1, 11));
                     break;
                 case Operator.Subtract:
-                    sum = new Subtraction();
-                    sum.First = random.Next(2, 11);
-                    sum.Second = random.Next(1, sum.First + 1);
+                    first = random.Next(2, 11);
+                    second = random.Next(1, first + 1);
+                    sum = new Subtraction(first, second);
                     break;
                 case Operator.Multiply:
-                    sum = new Multiplication();
-                    sum.First = random.Next(1, 11);
-                    sum.Second = random.Next(1, 6);
+                    first = random.Next(1, 11);
+                    second = random.Next(1, 6);
+                    sum = new Multiplication(first, second);
                     break;
                 case Operator.Divide:
-                    sum = new Division();
-                    sum.Second = random.Next(1, 5);
-                    sum.First = random.Next(1, 5) * sum.First;
+                    second = random.Next(1, 5);
+                    first = random.Next(1, 5) * second;
+                    sum = new Division(first, second);
                     break;
                 case Operator.Half:
-                    sum = new Division();
-                    sum.First = random.Next(1, 11) * 2;
-                    sum.Second = 2;
+                    first = random.Next(1, 11) * 2;
+                    second = 2;
+                    sum = new Division(first, second);
                     break;
                 case Operator.Double:
-                    sum = new Multiplication();
-                    sum.First = random.Next(1, 11);
-                    sum.Second = 2;
+                    first = random.Next(1, 11);
+                    second = 2;
+                    sum = new Multiplication(first, second);
                     break;
                 case Operator.TimesTen:
-                    sum = new Multiplication();
-                    sum.First = random.Next(1, 11);
-                    sum.Second = 10;
+                    first = random.Next(1, 11);
+                    second = 10;
+                    sum = new Multiplication(first, second);
                     break;
             }
             return sum;

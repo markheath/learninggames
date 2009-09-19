@@ -7,17 +7,28 @@ namespace LearningGames.Numbers
 {
     class Division : Sum
     {
-        public Division()
+        public int First { get; private set; }
+        public int Second { get; private set; }
+
+        public Division(int first, int second)
         {
-            this.Operator = Operator.Divide;
+            this.First = first;
+            this.Second = second;
         }
 
-        public override int Answer
+        public override bool IsCorrect(string answer)
         {
-            get
+            int answerInt;
+            if (Int32.TryParse(answer, out answerInt))
             {
-                return First / Second;
+                return answerInt == First / Second;
             }
+            return false;
+        }
+
+        public override object Content
+        {
+            get { return ToString(); }
         }
 
         public override string ToString()

@@ -117,17 +117,13 @@ namespace LearningGames.Numbers
 
         public void OnSubmitAnswer()
         {
-            int answer;
-            if (Int32.TryParse(Answer, out answer))
+            if(currentSum.IsCorrect(Answer))
             {
-                if (answer == currentSum.Answer)
-                {
-                    Score++;
-                    currentSum = sumProvider.GetNextSum();
-                    QuestionState = QuestionState.Correct;
-                    startCorrectAnswer.Fire(this);
-                    return;
-                }
+                Score++;
+                currentSum = sumProvider.GetNextSum();
+                QuestionState = QuestionState.Correct;
+                startCorrectAnswer.Fire(this);
+                return;
             }
             QuestionState = QuestionState.Incorrect;
             startWrongAnswer.Fire(this);                    
