@@ -30,7 +30,7 @@
                Content="{Binding Score}" />
         
         <Label Margin="5" Grid.Row="1" FontFamily="Segoe UI" 
-               FontSize="40" FontWeight="Bold" Content="{Binding SumText}"/>
+               FontSize="40" FontWeight="Bold" Content="{Binding Sum}"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2">
         <TextBox Margin="5" x:Name="textBoxAnswer"
