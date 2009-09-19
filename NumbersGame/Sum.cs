@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace LearningGames.Numbers
 {
     public abstract class Sum
     {
-        public int First { get; set; }
-        public int Second { get; set; }
-        public Operator Operator { get; set; }
-        
-        public abstract int Answer
-        {
-            get;
-        }
+        public abstract object Content { get; }
+        public abstract bool IsCorrect(string answer);
     }
-
+    
     public interface ISumType
     {
         string Name { get; }
