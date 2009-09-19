@@ -25,7 +25,12 @@ namespace LearningGames.Numbers
         private void CreateGui()
         {
             var page = new NumbersPage();
-            var sumProvider = new SumProvider(Difficulty.Medium);
+            ISumType[] sumTypes = new ISumType[] {
+                new AdditionSumType(),
+                new MultiplicationSumType(),
+                new SubtractionSumType()
+            };
+            var sumProvider = new SumProvider(sumTypes);
             var sumQuiz = new SumQuiz(sumProvider);
             NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
             page.DataContext = numbers;
