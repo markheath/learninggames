@@ -20,5 +20,11 @@ namespace LearningGames.UnitTests.NumbersGame
             var quiz = new SumQuiz(sumProvider.Object);
             viewModel = new NumbersViewModel(quiz);
         }
+
+        [Test]
+        public void Test()
+        {
+
+        }
     }
 }

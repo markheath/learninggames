@@ -62,11 +62,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NumbersGame\AdditionSumTypeTests.cs" />
     <Compile Include="NumbersGame\AdditionTests.cs" />
     <Compile Include="NumbersGame\DivisionTests.cs" />
+    <Compile Include="NumbersGame\MultiplicationSumTypeTests.cs" />
     <Compile Include="NumbersGame\MultiplicationTests.cs" />
     <Compile Include="NumbersGame\NumbersGameTests.cs" />
     <Compile Include="NumbersGame\NumbersViewModelTests.cs" />
+    <Compile Include="NumbersGame\SubtractionSumTypeTests.cs" />
     <Compile Include="NumbersGame\SubtractionTests.cs" />
     <Compile Include="NumbersGame\SumQuizTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

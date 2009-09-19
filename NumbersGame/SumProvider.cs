@@ -7,44 +7,29 @@ namespace LearningGames.Numbers
 {
     public class SumProvider : ISumProvider
     {
-        Difficulty difficulty;
         static Random random = new Random();
+        List<ISumType> sumTypes;
 
-        public SumProvider(Difficulty difficulty)
+        public SumProvider(IEnumerable<ISumType> sumTypes)
         {
-            this.difficulty = difficulty;
+            this.sumTypes = new List<ISumType>();
+            this.sumTypes.AddRange(sumTypes);
         }
 
         public Sum GetNextSum()
         {
-            return CreateRandom(difficulty);
+            int sumTypeIndex = random.Next(0, sumTypes.Count);
+            return sumTypes[sumTypeIndex].CreateRandom(random);
         }
-
-        // TODO: difficulty levels
-        public static Sum CreateRandom(Difficulty difficulty)
+        /*
+        public static Sum CreateRandom()
         {
-            int max = (difficulty == Difficulty.Easy) ? (int)Operator.Subtract + 1 :
-                (difficulty == Difficulty.Medium) ? (int)Operator.TimesTen + 1 :
-                (int)Operator.Divide + 1;
-            Operator op = Operator.Multiply; //(Operator)random.Next(max);
+            Operator op = Operator.Multiply;
             Sum sum = null;
             int first;
             int second;
             switch (op)
             {
-                case Operator.Add:
-                    sum = new Addition(random.Next(1, 11), random.Next(1, 11));
-                    break;
-                case Operator.Subtract:
-                    first = random.Next(2, 11);
-                    second = random.Next(1, first + 1);
-                    sum = new Subtraction(first, second);
-                    break;
-                case Operator.Multiply:
-                    first = random.Next(1, 11);
-                    second = random.Next(1, 6);
-                    sum = new Multiplication(first, second);
-                    break;
                 case Operator.Divide:
                     second = random.Next(1, 5);
                     first = random.Next(1, 5) * second;
@@ -67,6 +52,6 @@ namespace LearningGames.Numbers
                     break;
             }
             return sum;
-        }
+        }*/
     }
 }
