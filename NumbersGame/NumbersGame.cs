@@ -25,8 +25,9 @@ namespace LearningGames.Numbers
         private void CreateGui()
         {
             var page = new NumbersPage();
-            var sumProvider = new SumProvider(LearningGames.Numbers.Difficulty.Medium);
-            NumbersViewModel numbers = new NumbersViewModel(sumProvider);
+            var sumProvider = new SumProvider(Difficulty.Medium);
+            var sumQuiz = new SumQuiz(sumProvider);
+            NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
             page.DataContext = numbers;
             gui = page;
         }

@@ -12,9 +12,7 @@ namespace LearningGames.Numbers
 {
     public class NumbersViewModel : ViewModelBase
     {
-        Sum currentSum;
-        ISumProvider sumProvider;
-        int score;
+        SumQuiz quiz;
         string answer;        
         QuestionState questionState;
 
@@ -24,10 +22,9 @@ namespace LearningGames.Numbers
         private EventFirer startWrongAnswer;
         private EventFirer setTextboxFocus;
 
-        public NumbersViewModel(ISumProvider provider)
+        public NumbersViewModel(SumQuiz quiz)
         {
-            sumProvider = provider;
-            currentSum = provider.GetNextSum();
+            this.quiz = quiz;            
             startCorrectAnswer = new EventFirer();
             startWrongAnswer = new EventFirer();
             setTextboxFocus = new EventFirer();
@@ -71,14 +68,15 @@ namespace LearningGames.Numbers
             Answer = "";
             QuestionState = QuestionState.Unanswered;
             setTextboxFocus.Fire(this);
-            RaisePropertyChangedEvent("SumText");
+            // might not have changed, but fire here anyway
+            RaisePropertyChangedEvent("SumText");            
         }
 
         public string SumText
         {
             get 
             { 
-                return currentSum.ToString(); 
+                return quiz.CurrentSum.ToString(); 
             }
         }
 
@@ -86,15 +84,7 @@ namespace LearningGames.Numbers
         {
             get
             {
-                return score;
-            }
-            set
-            {
-                if (score != value)
-                {
-                    score = value;
-                    RaisePropertyChangedEvent("Score");
-                }
+                return quiz.Score;
             }
         }
        
@@ -117,16 +107,17 @@ namespace LearningGames.Numbers
 
         public void OnSubmitAnswer()
         {
-            if(currentSum.IsCorrect(Answer))
+            if (quiz.SubmitAnswer(Answer))
             {
-                Score++;
-                currentSum = sumProvider.GetNextSum();
                 QuestionState = QuestionState.Correct;
                 startCorrectAnswer.Fire(this);
-                return;
+                RaisePropertyChangedEvent("Score");
             }
-            QuestionState = QuestionState.Incorrect;
-            startWrongAnswer.Fire(this);                    
+            else
+            {
+                QuestionState = QuestionState.Incorrect;
+                startWrongAnswer.Fire(this);
+            }
         }
     }
 }

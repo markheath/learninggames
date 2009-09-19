@@ -4,24 +4,21 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using LearningGames.Numbers;
+using Moq;
 
 namespace LearningGames.UnitTests.NumbersGame
 {
     [TestFixture]
-    public class SumQuizTest
+    public class NumbersViewModelTests
     {
-        SumQuiz sumQuiz;
+        NumbersViewModel viewModel;
 
         [SetUp]
         public void SetUp()
         {
-            sumQuiz = new SumQuiz();
-        }
-
-        [Test]
-        public void RightAnswersIsInitiallyZero()
-        {
-            Assert.AreEqual(0, sumQuiz.RightAnswers);
+            var sumProvider = new Mock<ISumProvider>();
+            var quiz = new SumQuiz(sumProvider.Object);
+            viewModel = new NumbersViewModel(quiz);
         }
     }
 }
