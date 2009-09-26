@@ -52,7 +52,6 @@ namespace LearningGames.KeyWords
 
         void OnCorrectClick()
         {
-            speechService.Speak(KeyWord, null);
             manager.Correct();
             RaisePropertyChangedEvent("Right");
             RaisePropertyChangedEvent("KeyWord");
@@ -76,6 +75,7 @@ namespace LearningGames.KeyWords
 
         void OnIncorrectClick()
         {
+            speechService.Speak(KeyWord, null);
             manager.Incorrect();
             RaisePropertyChangedEvent("Wrong");
             RaisePropertyChangedEvent("KeyWord");

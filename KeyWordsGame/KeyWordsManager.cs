@@ -15,8 +15,12 @@ namespace LearningGames.KeyWords
 
         public KeyWordsManager(IEnumerable<KeyWord> keyWords)
         {
-            this.keyWordsList = keyWords.ToList();
-            this.keyWordsList.Shuffle();
+            var list = keyWords.ToList();
+            list.Shuffle();
+            var truncatedList = new List<KeyWord>();
+
+            truncatedList.AddRange(list.Take(20));
+            keyWordsList = truncatedList;
         }
 
         public void Correct()
