@@ -23,11 +23,5 @@ namespace LearningGames
         {
             InitializeComponent();
         }
-
-        void OnGameClick(object sender, RoutedEventArgs args)
-        {
-            IGame game = (IGame)((Button)sender).DataContext;
-            NavigationService.Navigate(game.Gui);
-        }
     }
 }

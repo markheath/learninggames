@@ -53,6 +53,7 @@
     <Compile Include="FocusHelpers.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="IGame.cs" />
+    <Compile Include="INavigationService.cs" />
     <Compile Include="IQuiz.cs" />
     <Compile Include="ListUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -68,9 +69,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RelayCommand.cs" />
     <Compile Include="StoryboardHelpers.cs" />
-    <Compile Include="ViewModelBase.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

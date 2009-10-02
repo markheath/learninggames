@@ -5,6 +5,8 @@ using System.Text;
 using System.Xml.Linq;
 using System.Windows.Input;
 using LearningGames.Framework;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace LearningGames.KeyWords
 {
@@ -53,8 +55,8 @@ namespace LearningGames.KeyWords
         void OnCorrectClick()
         {
             manager.Correct();
-            RaisePropertyChangedEvent("Right");
-            RaisePropertyChangedEvent("KeyWord");
+            RaisePropertyChanged("Right");
+            RaisePropertyChanged("KeyWord");
         }
 
         public string Right
@@ -77,8 +79,8 @@ namespace LearningGames.KeyWords
         {
             speechService.Speak(KeyWord, null);
             manager.Incorrect();
-            RaisePropertyChangedEvent("Wrong");
-            RaisePropertyChangedEvent("KeyWord");
+            RaisePropertyChanged("Wrong");
+            RaisePropertyChanged("KeyWord");
         }
     }
 }

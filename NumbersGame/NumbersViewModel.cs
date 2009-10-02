@@ -7,6 +7,8 @@ using System.Windows.Input;
 using System.Windows;
 using System.Windows.Media.Animation;
 using LearningGames.Framework;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace LearningGames.Numbers
 {
@@ -49,8 +51,8 @@ namespace LearningGames.Numbers
                 if (questionState != value)
                 {
                     questionState = value;
-                    RaisePropertyChangedEvent("QuestionState");
-                    RaisePropertyChangedEvent("AllowAnswer");
+                    RaisePropertyChanged("QuestionState");
+                    RaisePropertyChanged("AllowAnswer");
                 }
             }
         }
@@ -69,7 +71,7 @@ namespace LearningGames.Numbers
             QuestionState = QuestionState.Unanswered;
             setTextboxFocus.Fire(this);
             // might not have changed, but fire here anyway
-            RaisePropertyChangedEvent("Sum");            
+            RaisePropertyChanged("Sum");            
         }
 
         public object Sum
@@ -99,7 +101,7 @@ namespace LearningGames.Numbers
                 if (answer != value)
                 {
                     answer = value;
-                    RaisePropertyChangedEvent("Answer");
+                    RaisePropertyChanged("Answer");
                     CommandManager.InvalidateRequerySuggested();
                 }
             }
@@ -111,7 +113,7 @@ namespace LearningGames.Numbers
             {
                 QuestionState = QuestionState.Correct;
                 startCorrectAnswer.Fire(this);
-                RaisePropertyChangedEvent("Score");
+                RaisePropertyChanged("Score");
             }
             else
             {
