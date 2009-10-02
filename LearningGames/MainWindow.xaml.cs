@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
+using LearningGames.Framework;
 
 namespace LearningGames
 {
@@ -26,24 +27,23 @@ namespace LearningGames
         public MainMenu()
         {
             InitializeComponent();
-            Compose();
             navigationFrame.Navigated += new NavigatedEventHandler(navigationFrame_Navigated);
             var page = new MainMenuPage();
-            page.DataContext = ViewModel;
+            
+            MainMenuViewModel viewModel = new MainMenuViewModel(new NavigationAdapter(navigationFrame));
+            Compose(viewModel);            
+            page.DataContext = viewModel;
             navigationFrame.Navigate(page);
         }
 
-        public void Compose()
+        public void Compose(object viewModel)
         {
             var catalog = new AggregateCatalog();
             catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));            
-            catalog.Catalogs.Add(new DirectoryCatalog("."));
+            catalog.Catalogs.Add(new DirectoryCatalog("."));            
             var container = new CompositionContainer(catalog);
-            container.ComposeParts(this);
+            container.ComposeParts(viewModel);
         }
-
-        [Import(typeof(MainMenuViewModel))]
-        public MainMenuViewModel ViewModel { get; set; }
 
         void navigationFrame_Navigated(object sender, NavigationEventArgs e)
         {

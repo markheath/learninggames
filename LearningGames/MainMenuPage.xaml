@@ -20,10 +20,13 @@
                 </Setter>
             </Style>
     </Page.Resources>
-    <ItemsControl ItemsSource="{Binding Games}">        
+    <ItemsControl ItemsSource="{Binding Games}">                
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Button Click="OnGameClick" Style="{StaticResource MenuButtonStyle}" Content="{Binding Name}"/>    
+                <Button Command="{Binding DataContext.GameSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                        CommandParameter="{Binding}" 
+                        Style="{StaticResource MenuButtonStyle}" 
+                        Content="{Binding Name}"/>    
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>
