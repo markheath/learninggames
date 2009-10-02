@@ -24,13 +24,18 @@ namespace LearningGames
     /// </summary>
     public partial class MainMenu : Window
     {
+        NavigationManager navigationManager;
+
         public MainMenu()
         {
             InitializeComponent();
-            navigationFrame.Navigated += new NavigatedEventHandler(navigationFrame_Navigated);
             var page = new MainMenuPage();
+            this.navigationManager = new NavigationManager(new NavigationAdapter(navigationFrame), page);
+            var mainWindowViewModel = new MainWindowViewModel();
+            this.DataContext = mainWindowViewModel;
+            navigationFrame.Navigated += new NavigatedEventHandler(navigationFrame_Navigated);
             
-            MainMenuViewModel viewModel = new MainMenuViewModel(new NavigationAdapter(navigationFrame));
+            var viewModel = new MainMenuViewModel();
             Compose(viewModel);            
             page.DataContext = viewModel;
             navigationFrame.Navigate(page);
