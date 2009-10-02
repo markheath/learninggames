@@ -9,6 +9,7 @@ namespace LearningGames
     public interface IGame
     {
         Page Gui { get; }
+        Page SettingsGui { get; }
         string Name { get; }
     }
 }

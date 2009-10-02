@@ -12,6 +12,8 @@ namespace LearningGames.Numbers
     public class NumbersGame : IGame
     {
         Page gui;
+        Page settingsGui;
+
         public NumbersGame()
         {
 
@@ -21,6 +23,12 @@ namespace LearningGames.Numbers
         {
             get { if (gui == null) CreateGui(); return gui; }
         }
+
+        public Page SettingsGui
+        {
+            get { if (settingsGui == null) CreateSettingsGui(); return settingsGui; }
+        }
+
 
         private void CreateGui()
         {
@@ -35,6 +43,12 @@ namespace LearningGames.Numbers
             NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
             page.DataContext = numbers;
             gui = page;
+        }
+
+        private void CreateSettingsGui()
+        {
+            this.settingsGui = new SettingsPage();
+
         }
 
         public string Name

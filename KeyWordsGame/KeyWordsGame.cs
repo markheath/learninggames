@@ -11,6 +11,8 @@ namespace LearningGames.KeyWords
     class KeyWordsGame : IGame
     {
         Page gui;
+        Page settingsGui;
+
         public KeyWordsGame()
         {
 
@@ -19,6 +21,11 @@ namespace LearningGames.KeyWords
         public Page Gui
         {
             get { if (gui == null) CreateGui(); return gui; }
+        }
+
+        public Page SettingsGui
+        {
+            get { if (settingsGui == null) CreateSettingsGui(); return settingsGui; }
         }
 
         private void CreateGui()
@@ -30,6 +37,12 @@ namespace LearningGames.KeyWords
             keywordsPage.DataContext = new KeyWordsViewModel(wordsList, speechService);
             gui = keywordsPage;
         }
+
+        private void CreateSettingsGui()
+        {
+            settingsGui = new SettingsPage();
+        }
+
 
         public string Name
         {

@@ -2,5 +2,24 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="MainMenu" Height="300" Width="300">
-<Frame x:Name="navigationFrame"  NavigationUIVisibility="Hidden" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Command="{Binding HomeCommand}" Height="50" Width="50">
+                <Path Stretch="Fill" Fill="Black" Data="M 5,10 h 5 v -5 h 4 v 5 h 5 v -7 h 2 l -9, -7 l -9, 7 h 2 Z" />
+            </Button>
+            <Button Command="{Binding SettingsCommand}" Height="50" Width="50">
+                <Path Stretch="Fill" Fill="Black" Data="M4.6363636,7.1363636 L7.9090909,9.6818182 12.309989,5.0861102 C16.433953,7.2954544 17.939937,4.545645 19.093141,2.3636363 L17.047612,0.61363631 C16.397981,1.2340807 14.61319,3.0458374 13.931121,2.9324068 13.218382,2.8138757 11.608338,1.2829791 11.271933,0.70513413 10.890992,0.050788913 12.893253,-1.3255047 13.570212,-2.0909091 L12,-4 C9.7139796,-2.2055698 5.935446,0.1363635 9.2746009,2.5227272 z" Width="35.338" Height="43" />
+            </Button>
+            <Button Command="{Binding AboutCommand}" Height="50" Width="50" FontSize="30" FontWeight="Bold" FontFamily="Georgia">
+                i
+            </Button>
+
+        </StackPanel>
+        <Frame x:Name="navigationFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+        
+    </Grid>
 </Window>
