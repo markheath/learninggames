@@ -32,7 +32,7 @@ namespace LearningGames.UnitTests.NumbersGame
         [Test]
         public void ScoreIsInitiallyZero()
         {
-            Assert.AreEqual(0, sumQuiz.Score);
+            Assert.AreEqual(0, sumQuiz.Right);
         }
 
         [Test]
@@ -73,14 +73,14 @@ namespace LearningGames.UnitTests.NumbersGame
         public void ScoreRemainsSameForIncorrectAnswer()
         {
             sumQuiz.SubmitAnswer("3");
-            Assert.AreEqual(0, sumQuiz.Score);
+            Assert.AreEqual(0, sumQuiz.Right);
         }
 
         [Test]
         public void ScoreIncreasesForCorrectAnswer()
         {
             sumQuiz.SubmitAnswer("2");
-            Assert.AreEqual(1, sumQuiz.Score);
+            Assert.AreEqual(1, sumQuiz.Right);
         }
 
         [Test]

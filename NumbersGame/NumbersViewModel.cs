@@ -86,7 +86,7 @@ namespace LearningGames.Numbers
         {
             get
             {
-                return quiz.Score;
+                return quiz.Right;
             }
         }
        
@@ -107,7 +107,7 @@ namespace LearningGames.Numbers
             }
         }
 
-        public void OnSubmitAnswer()
+        private void OnSubmitAnswer()
         {
             if (quiz.SubmitAnswer(Answer))
             {

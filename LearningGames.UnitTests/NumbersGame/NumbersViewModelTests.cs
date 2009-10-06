@@ -23,7 +23,7 @@ namespace LearningGames.UnitTests.NumbersGame
             this.quizMock = new Mock<IQuiz>();
             this.viewModel = new NumbersViewModel(quizMock.Object);
             this.propertyChangedEvents = new List<PropertyChangedEventArgs>();
-            this.viewModel.PropertyChanged += OnViewModelPropertyChanged;
+            this.viewModel.PropertyChanged += (sender, args) => propertyChangedEvents.Add(args);            
         }
 
         [Test]
@@ -40,6 +40,13 @@ namespace LearningGames.UnitTests.NumbersGame
         }
 
         [Test]
+        public void ScoreIsReturnedFromQuiz()
+        {
+            quizMock.Setup(x => x.Right).Returns(5);
+            Assert.AreEqual(5, viewModel.Score);
+        }
+
+        [Test]
         public void DontAllowAnswerWhilePlayingCorrectAnswerAnimation()
         {
             viewModel.QuestionState = QuestionState.Correct;
@@ -49,8 +56,16 @@ namespace LearningGames.UnitTests.NumbersGame
         [Test]
         public void AllowAnswerPropertyChangedEventShouldFireWhenChangingQuestionState()
         {
-            viewModel.QuestionState = QuestionState.Correct;
+            viewModel.QuestionState = QuestionState.Correct;            
             Assert.IsNotNull(propertyChangedEvents.Find(p => p.PropertyName == "AllowAnswer"));
+        }
+
+        [Test]
+        public void SubmittingCorrectAnswerShouldCauseScorePropertyChangedEventToFire()
+        {
+            quizMock.Setup(x => x.SubmitAnswer(It.IsAny<string>())).Returns(true);
+            viewModel.SubmitAnswerCommand.Execute(null);
+            Assert.IsNotNull(propertyChangedEvents.Find(p => p.PropertyName == "Score"));
         }
 
         [Test]
@@ -60,9 +75,48 @@ namespace LearningGames.UnitTests.NumbersGame
             Assert.IsFalse(viewModel.AllowAnswer);
         }
 
-        void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        [Test]
+        public void SubmittingAnswerPassesAnswerPropertyToQuiz()
         {
-            this.propertyChangedEvents.Add(e);
+            viewModel.Answer = "abcde";
+            viewModel.SubmitAnswerCommand.Execute(null);
+            quizMock.Verify(x => x.SubmitAnswer("abcde"));
         }
+
+        [Test]
+        public void SubmittingCorrectAnswerSetsQuestionStateToCorrect()
+        {
+            quizMock.Setup(x => x.SubmitAnswer(It.IsAny<string>())).Returns(true);
+            viewModel.SubmitAnswerCommand.Execute(null);
+            Assert.AreEqual(QuestionState.Correct, viewModel.QuestionState);
+        }
+
+        [Test]
+        public void SubmittingCorrectAnswerCausesStartCorrectAnswerEventToBeFired()
+        {
+            quizMock.Setup(x => x.SubmitAnswer(It.IsAny<string>())).Returns(true);
+            EventArgs startCorrectAnswerArgs = null;
+            viewModel.StartCorrectAnswer.Event += (sender, args) => startCorrectAnswerArgs = args;
+            viewModel.SubmitAnswerCommand.Execute(null);            
+            Assert.IsNotNull(startCorrectAnswerArgs);
+        }
+
+        [Test]
+        public void SubmittingIncorrectAnswerCausesStartWrongAnswerEventToBeFired()
+        {
+            quizMock.Setup(x => x.SubmitAnswer(It.IsAny<string>())).Returns(false);
+            EventArgs startWrongAnswerArgs = null;
+            viewModel.StartWrongAnswer.Event += (sender, args) => startWrongAnswerArgs = args;
+            viewModel.SubmitAnswerCommand.Execute(null);
+            Assert.IsNotNull(startWrongAnswerArgs);
+        }
+
+        [Test]
+        public void SubmittingIncorrectAnswerSetsQuestionStateToIncorrect()
+        {
+            quizMock.Setup(x => x.SubmitAnswer(It.IsAny<string>())).Returns(false);
+            viewModel.SubmitAnswerCommand.Execute(null);
+            Assert.AreEqual(QuestionState.Incorrect, viewModel.QuestionState);
+        }        
     }
 }

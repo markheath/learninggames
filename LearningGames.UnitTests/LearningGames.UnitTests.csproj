@@ -66,6 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KeyWordsGame\KeyWordsQuizTests.cs" />
     <Compile Include="NumbersGame\AdditionSumTypeTests.cs" />
     <Compile Include="NumbersGame\AdditionTests.cs" />
     <Compile Include="NumbersGame\DivisionTests.cs" />

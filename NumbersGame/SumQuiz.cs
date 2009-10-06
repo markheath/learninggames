@@ -6,7 +6,7 @@ using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
-    public class SumQuiz : IQuiz
+    public class SumQuiz : QuizBase
     {
         ISumProvider sumProvider;
         Sum currentSum;
@@ -17,14 +17,12 @@ namespace LearningGames.Numbers
             this.currentSum = sumProvider.GetNextSum();
         }
 
-        public int Score { get; private set; }
-
-        public bool SubmitAnswer(string answer)
+        public override bool SubmitAnswer(string answer)
         {
             bool correct = currentSum.IsCorrect(answer);
             if (correct)
             {
-                Score++;
+                Right++;
                 currentSum = sumProvider.GetNextSum();
             }
             return correct;
@@ -38,7 +36,7 @@ namespace LearningGames.Numbers
             }
         }
 
-        public object CurrentQuestionContent
+        public override object CurrentQuestionContent
         {
             get
             {
