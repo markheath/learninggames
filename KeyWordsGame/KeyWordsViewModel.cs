@@ -12,7 +12,7 @@ namespace LearningGames.KeyWords
 {
     class KeyWordsViewModel : ViewModelBase
     {
-        KeyWordsManager manager;
+        KeyWordsQuiz quiz;
         ICommand correctCommand;
         ICommand incorrectCommand;
         
@@ -20,7 +20,7 @@ namespace LearningGames.KeyWords
 
         public KeyWordsViewModel(IEnumerable<KeyWord> keyWords, ISpeechService speechService)
         {
-            this.manager = new KeyWordsManager(keyWords);
+            this.quiz = new KeyWordsQuiz(keyWords);
             this.speechService = speechService;
         }
 
@@ -54,31 +54,30 @@ namespace LearningGames.KeyWords
 
         void OnCorrectClick()
         {
-            manager.Correct();
+            quiz.Correct();
             RaisePropertyChanged("Right");
             RaisePropertyChanged("KeyWord");
         }
 
-        public string Right
+        public int Right
         {
-            get { return manager.Right.ToString(); }
+            get { return quiz.Right; }
         }
 
-        public string Wrong
+        public int Wrong
         {
-            get { return manager.Wrong.ToString(); }
+            get { return quiz.Wrong; }
         }
 
-        public string KeyWord
+        public object KeyWord
         {
-            get { return manager.Word; }
+            get { return quiz.CurrentQuestionContent; }
         }
-
 
         void OnIncorrectClick()
         {
-            speechService.Speak(KeyWord, null);
-            manager.Incorrect();
+            speechService.Speak((string)KeyWord, null);
+            quiz.Incorrect();
             RaisePropertyChanged("Wrong");
             RaisePropertyChanged("KeyWord");
         }

@@ -7,8 +7,10 @@ namespace LearningGames.Framework
 {
     public interface IQuiz
     {
-        int Score { get; }
+        int Right { get; }
+        int Wrong { get; }
         bool SubmitAnswer(string answer);
         object CurrentQuestionContent { get; }
+        event EventHandler Finished;
     }
 }

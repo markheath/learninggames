@@ -6,14 +6,12 @@ using LearningGames.Framework;
 
 namespace LearningGames.KeyWords
 {
-    class KeyWordsManager
+    class KeyWordsQuiz : QuizBase
     {
-        int right;
-        int wrong;
         IList<KeyWord> keyWordsList;
         int currentIndex = 0;
 
-        public KeyWordsManager(IEnumerable<KeyWord> keyWords)
+        public KeyWordsQuiz(IEnumerable<KeyWord> keyWords)
         {
             var list = keyWords.ToList();
             list.Shuffle();
@@ -23,15 +21,25 @@ namespace LearningGames.KeyWords
             keyWordsList = truncatedList;
         }
 
+        public override bool SubmitAnswer(string answer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object CurrentQuestionContent
+        {
+            get { return CurrentWord.Word; }
+        }
+
         public void Correct()
         {
-            right++;
+            Right++;
             MoveNext();
         }
 
         public void Incorrect()
         {
-            wrong++;
+            Wrong++;
             // put it to the back of the list to be tried again
             keyWordsList.Add(CurrentWord);
             MoveNext();
@@ -42,27 +50,16 @@ namespace LearningGames.KeyWords
             get { return keyWordsList[currentIndex]; }
         }
 
-        public string Word
-        {
-            get { return CurrentWord.Word; }
-        }
-
         private void MoveNext()
         {
             if (currentIndex < keyWordsList.Count - 1)
             {
                 currentIndex++;
-
             }
             else
             {
-                //TODO: finished
-                //MessageBox.Show("Finished");
+
             }
-
         }
-
-        public int Right { get { return right; } }
-        public int Wrong { get { return wrong; } }
     }
 }
