@@ -12,47 +12,19 @@ using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
-using LearningGames.Framework;
 
 namespace LearningGames
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainMenu : Window
+    public partial class MainWindow : Window
     {
-        NavigationManager navigationManager;
-
-        public MainMenu()
+        public MainWindow()
         {
             InitializeComponent();
-            var page = new MainMenuPage();
-            this.navigationManager = new NavigationManager(new NavigationAdapter(navigationFrame), page);
-            var mainWindowViewModel = new MainWindowViewModel();
-            this.DataContext = mainWindowViewModel;
-            navigationFrame.Navigated += new NavigatedEventHandler(navigationFrame_Navigated);
-            
-            var viewModel = new MainMenuViewModel();
-            Compose(viewModel);            
-            page.DataContext = viewModel;
-            navigationFrame.Navigate(page);
-        }
-
-        public void Compose(object viewModel)
-        {
-            var catalog = new AggregateCatalog();
-            catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));            
-            catalog.Catalogs.Add(new DirectoryCatalog("."));            
-            var container = new CompositionContainer(catalog);
-            container.ComposeParts(viewModel);
-        }
-
-        void navigationFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-            this.SizeToContent = SizeToContent.WidthAndHeight;
+            navigationFrame.Navigated += (sender, e) => { this.SizeToContent = SizeToContent.WidthAndHeight; };
         }
     }
 }
