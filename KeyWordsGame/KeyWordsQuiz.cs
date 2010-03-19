@@ -8,17 +8,11 @@ namespace LearningGames.KeyWords
 {
     class KeyWordsQuiz : QuizBase
     {
-        IList<KeyWord> keyWordsList;
-        int currentIndex = 0;
+        QuizWordsProvider wordsProvider;
 
         public KeyWordsQuiz(IEnumerable<KeyWord> keyWords)
         {
-            var list = keyWords.ToList();
-            list.Shuffle();
-            var truncatedList = new List<KeyWord>();
-
-            truncatedList.AddRange(list.Take(20));
-            keyWordsList = truncatedList;
+            this.wordsProvider = new QuizWordsProvider(keyWords, 20);
         }
 
         public override bool SubmitAnswer(string answer)
@@ -34,32 +28,20 @@ namespace LearningGames.KeyWords
         public void Correct()
         {
             Right++;
-            MoveNext();
+            wordsProvider.Right();
         }
 
         public void Incorrect()
         {
             Wrong++;
-            // put it to the back of the list to be tried again
-            keyWordsList.Add(CurrentWord);
-            MoveNext();
+            wordsProvider.Wrong();
         }
 
         public KeyWord CurrentWord
         {
-            get { return keyWordsList[currentIndex]; }
+            get { return wordsProvider.CurrentWord; }
         }
 
-        private void MoveNext()
-        {
-            if (currentIndex < keyWordsList.Count - 1)
-            {
-                currentIndex++;
-            }
-            else
-            {
 
-            }
-        }
     }
 }

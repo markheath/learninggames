@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="KeyWordsGame\KeyWordsQuizTests.cs" />
+    <Compile Include="KeyWordsGame\QuizWordsProviderTests.cs" />
     <Compile Include="NumbersGame\AdditionSumTypeTests.cs" />
     <Compile Include="NumbersGame\AdditionTests.cs" />
     <Compile Include="NumbersGame\DivisionTests.cs" />
@@ -80,6 +81,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KeyWordsGame\KeyWordsGame.csproj">
+      <Project>{0F5F92A8-24E3-4B96-BF6C-7D0FAE82A309}</Project>
+      <Name>KeyWordsGame</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LearningGames.Framework\LearningGames.Framework.csproj">
       <Project>{2C9AB6C7-E70C-4D5B-91C1-28B03C98A2AF}</Project>
       <Name>LearningGames.Framework</Name>
