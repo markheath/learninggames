@@ -5,6 +5,7 @@ using System.Text;
 using System.ComponentModel.Composition;
 using LearningGames;
 using System.Windows.Controls;
+using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
@@ -38,7 +39,7 @@ namespace LearningGames.Numbers
                 new MultiplicationSumType(),
                 new SubtractionSumType()
             };
-            var sumProvider = new SumProvider(sumTypes);
+            var sumProvider = new SumProvider(sumTypes, Difficulty.Year3);
             var sumQuiz = new SumQuiz(sumProvider);
             NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
             page.DataContext = numbers;

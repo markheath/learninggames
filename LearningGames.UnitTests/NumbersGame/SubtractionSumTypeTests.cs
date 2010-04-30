@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using LearningGames.Numbers;
+using LearningGames.Framework;
 
 namespace LearningGames.UnitTests.NumbersGame
 {
@@ -21,7 +22,7 @@ namespace LearningGames.UnitTests.NumbersGame
         public void SubtractionSumTypeCanCreateRandomQuestion()
         {
             var sumType = new SubtractionSumType();
-            var sum = sumType.CreateRandom(new Random());
+            var sum = sumType.CreateRandom(new Random(), Difficulty.Year3);
             Assert.IsInstanceOf<Subtraction>(sum);
         }
     }

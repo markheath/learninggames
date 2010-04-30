@@ -50,6 +50,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Difficulty.cs" />
     <Compile Include="FocusHelpers.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="IGame.cs" />
