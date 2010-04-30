@@ -17,6 +17,7 @@ namespace LearningGames.Numbers
         public NewGameViewModel()
         {
             NewGameCommand = new RelayCommand(() => OnNewGame());
+            DifficultyLevel = 2;
         }
 
         public ICommand NewGameCommand { get; private set; }
@@ -24,17 +25,33 @@ namespace LearningGames.Numbers
         private void OnNewGame()
         {
             var page = new NumbersPage();
-            ISumType[] sumTypes = new ISumType[] {
-                new AdditionSumType(),
-                new MultiplicationSumType(),
-                new SubtractionSumType()
-            };
-
-            var sumProvider = new SumProvider(sumTypes, (Difficulty)DifficultyLevel);
-            var sumQuiz = new SumQuiz(sumProvider);
-            NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
+            NumbersViewModel numbers = CreateNumbersViewModel();
             page.DataContext = numbers;
             Messenger.Default.Send(new NavigateMessage() { Target = page });            
+        }
+
+        private NumbersViewModel CreateNumbersViewModel()
+        {
+            IProblemGenerator[] problemGenerators = new IProblemGenerator[] {
+                new AdditionProblemGenerator(Difficulty.Year1),
+                new AdditionProblemGenerator(Difficulty.Year2),
+                new AdditionProblemGenerator(Difficulty.Year3),
+                new AdditionProblemGenerator(Difficulty.Year4),
+                new AdditionProblemGenerator(Difficulty.Year5),
+                new MultiplicationProblemGenerator(Difficulty.Year3),
+                new MultiplicationProblemGenerator(Difficulty.Year4),
+                new MultiplicationProblemGenerator(Difficulty.Year5),
+                new SubtractionProblemGenerator(Difficulty.Year1),
+                new SubtractionProblemGenerator(Difficulty.Year2),
+                new SubtractionProblemGenerator(Difficulty.Year3),
+                new SubtractionProblemGenerator(Difficulty.Year4),
+                new SubtractionProblemGenerator(Difficulty.Year5),
+            };
+
+            var sumProvider = new ProblemProvider(from p in problemGenerators where p.Difficulty == (Difficulty)DifficultyLevel select p);
+            var sumQuiz = new SumQuiz(sumProvider);
+            NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
+            return numbers;
         }
 
         public int MinLevel
@@ -44,7 +61,7 @@ namespace LearningGames.Numbers
 
         public int MaxLevel
         {
-            get { return 5; } 
+            get { return 4; } 
         }
 
         public int DifficultyLevel

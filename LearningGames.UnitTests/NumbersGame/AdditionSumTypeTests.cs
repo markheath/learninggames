@@ -14,15 +14,15 @@ namespace LearningGames.UnitTests.NumbersGame
         [Test]
         public void AdditionSumTypeHasCorrectName()
         {
-            AdditionSumType additionSumType = new AdditionSumType();
+            AdditionProblemGenerator additionSumType = new AdditionProblemGenerator(Difficulty.Year3);
             Assert.IsTrue(additionSumType.Name.Contains("Addition"));
         }
 
         [Test]
         public void AdditionSumTypeCanCreateRandomQuestion()
         {
-            AdditionSumType additionSumType = new AdditionSumType();
-            var sum = additionSumType.CreateRandom(new Random(), Difficulty.Year3);
+            AdditionProblemGenerator additionSumType = new AdditionProblemGenerator(Difficulty.Year3);
+            var sum = additionSumType.CreateRandom(new Random());
             Assert.IsInstanceOf<Addition>(sum);
         }
     }

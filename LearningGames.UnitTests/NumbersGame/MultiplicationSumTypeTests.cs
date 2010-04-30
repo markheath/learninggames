@@ -14,15 +14,15 @@ namespace LearningGames.UnitTests.NumbersGame
         [Test]
         public void MultiplicationSumTypeHasCorrectName()
         {
-            MultiplicationSumType multiplicationSumType = new MultiplicationSumType();
+            MultiplicationProblemGenerator multiplicationSumType = new MultiplicationProblemGenerator(Difficulty.Year3);
             Assert.IsTrue(multiplicationSumType.Name.Contains("Multiplication"));
         }
 
         [Test]
         public void MultiplicationSumTypeCanCreateRandomQuestion()
         {
-            MultiplicationSumType multiplicationSumType = new MultiplicationSumType();
-            var sum = multiplicationSumType.CreateRandom(new Random(), Difficulty.Year3);
+            MultiplicationProblemGenerator multiplicationSumType = new MultiplicationProblemGenerator(Difficulty.Year3);
+            var sum = multiplicationSumType.CreateRandom(new Random());
             Assert.IsInstanceOf<Multiplication>(sum);
         }
     }
