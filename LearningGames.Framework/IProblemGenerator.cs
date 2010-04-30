@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using LearningGames.Framework;
 
-namespace LearningGames.Numbers
+namespace LearningGames.Framework
 {
     public interface IProblemGenerator
     {
         string Name { get; }
         Difficulty Difficulty { get; }
-        Sum CreateRandom(Random random);
+        Problem CreateRandom(Random random);
     }
 }

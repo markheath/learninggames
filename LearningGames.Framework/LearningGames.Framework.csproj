@@ -76,9 +76,12 @@
     <Compile Include="IEvent.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="INavigationService.cs" />
+    <Compile Include="IProblemGenerator.cs" />
+    <Compile Include="IProblemProvider.cs" />
     <Compile Include="IQuiz.cs" />
     <Compile Include="ListUtils.cs" />
     <Compile Include="NavigateMessage.cs" />
+    <Compile Include="Problem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -5,6 +5,7 @@ using System.Text;
 using NUnit.Framework;
 using LearningGames.Numbers;
 using Moq;
+using LearningGames.Framework;
 
 namespace LearningGames.UnitTests.NumbersGame
 {

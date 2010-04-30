@@ -88,7 +88,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISumType.cs" />
     <Compile Include="NewGame.xaml.cs">
       <DependentUpon>NewGame.xaml</DependentUpon>
     </Compile>
@@ -103,7 +102,6 @@
     <Compile Include="Sums\Addition.cs" />
     <Compile Include="Sums\AdditionSumType.cs" />
     <Compile Include="Sums\Division.cs" />
-    <Compile Include="ISumProvider.cs" />
     <Compile Include="Sums\Multiplication.cs" />
     <Compile Include="NumbersGame.cs" />
     <Compile Include="NumbersPage.xaml.cs">
@@ -127,7 +125,6 @@
     <Compile Include="Sums\MultiplicationSumType.cs" />
     <Compile Include="Sums\Subtraction.cs" />
     <Compile Include="Sums\SubtractionSumType.cs" />
-    <Compile Include="Sums\Sum.cs" />
     <Compile Include="SumProvider.cs" />
     <Compile Include="SumQuiz.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

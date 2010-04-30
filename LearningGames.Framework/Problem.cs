@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace LearningGames.Numbers
+namespace LearningGames.Framework
 {
-    public abstract class Sum
+    public abstract class Problem
     {
         public abstract object Content { get; }
         public abstract bool IsCorrect(string answer);

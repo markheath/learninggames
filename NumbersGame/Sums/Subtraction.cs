@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
-    public class Subtraction : Sum
+    public class Subtraction : Problem
     {
         public int First { get; private set; }
         public int Second { get; private set; }
