@@ -20,7 +20,7 @@ namespace LearningGames.Numbers
             get { return "Multiplication"; }
         }
 
-        public Sum CreateRandom(Random random)
+        public Problem CreateRandom(Random random)
         {
             int first;
             int second;

@@ -17,7 +17,7 @@ namespace LearningGames.Numbers
             this.problemGenerators.AddRange(problemGenerators);
         }
 
-        public Sum GetNextProblem()
+        public Problem GetNextProblem()
         {            
             int sumTypeIndex = random.Next(0, problemGenerators.Count);
             return problemGenerators[sumTypeIndex].CreateRandom(random);

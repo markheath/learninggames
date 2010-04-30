@@ -9,7 +9,7 @@ namespace LearningGames.Numbers
     public class SumQuiz : QuizBase
     {
         IProblemProvider sumProvider;
-        Sum currentSum;
+        Problem currentSum;
 
         public SumQuiz(IProblemProvider sumProvider)
         {
@@ -28,7 +28,7 @@ namespace LearningGames.Numbers
             return correct;
         }
 
-        public Sum CurrentSum
+        public Problem CurrentSum
         {
             get
             {
