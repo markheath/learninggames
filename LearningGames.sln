@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames", "LearningGames\LearningGames.csproj", "{A9AAA5BA-BE7A-41A2-8F71-BFFA93271FD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyWordsGame", "KeyWordsGame\KeyWordsGame.csproj", "{0F5F92A8-24E3-4B96-BF6C-7D0FAE82A309}"
