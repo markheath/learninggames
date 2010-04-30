@@ -12,7 +12,7 @@ namespace LearningGames.UnitTests.NumbersGame
     public class SumQuizTests
     {
         SumQuiz sumQuiz;
-        Mock<ISumProvider> sumProvider;
+        Mock<IProblemProvider> sumProvider;
         Addition[] sums;
         int sumIndex;
 
@@ -24,8 +24,8 @@ namespace LearningGames.UnitTests.NumbersGame
                 new Addition(1, 1),
                 new Addition(2, 2)
             };
-            sumProvider = new Mock<ISumProvider>();
-            sumProvider.Setup(x => x.GetNextSum()).Returns(() => sums[sumIndex++]);
+            sumProvider = new Mock<IProblemProvider>();
+            sumProvider.Setup(x => x.GetNextProblem()).Returns(() => sums[sumIndex++]);
             sumQuiz = new SumQuiz(sumProvider.Object);
         }
 

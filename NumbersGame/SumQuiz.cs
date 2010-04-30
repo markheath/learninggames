@@ -8,13 +8,13 @@ namespace LearningGames.Numbers
 {
     public class SumQuiz : QuizBase
     {
-        ISumProvider sumProvider;
+        IProblemProvider sumProvider;
         Sum currentSum;
 
-        public SumQuiz(ISumProvider sumProvider)
+        public SumQuiz(IProblemProvider sumProvider)
         {
             this.sumProvider = sumProvider;
-            this.currentSum = sumProvider.GetNextSum();
+            this.currentSum = sumProvider.GetNextProblem();
         }
 
         public override bool SubmitAnswer(string answer)
@@ -23,7 +23,7 @@ namespace LearningGames.Numbers
             if (correct)
             {
                 Right++;
-                currentSum = sumProvider.GetNextSum();
+                currentSum = sumProvider.GetNextProblem();
             }
             return correct;
         }

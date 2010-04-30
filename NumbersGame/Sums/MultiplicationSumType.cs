@@ -6,18 +6,25 @@ using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
-    public class MultiplicationSumType : ISumType
+    public class MultiplicationProblemGenerator : IProblemGenerator
     {
+        public MultiplicationProblemGenerator(Difficulty difficulty)
+        {
+            this.Difficulty = difficulty;
+        }
+
+        public Difficulty Difficulty { get; private set; }
+
         public string Name
         {
             get { return "Multiplication"; }
         }
 
-        public Sum CreateRandom(Random random, Difficulty difficulty)
+        public Sum CreateRandom(Random random)
         {
             int first;
             int second;
-            switch (difficulty)
+            switch (Difficulty)
             {
                 case Difficulty.Year1:
                 case Difficulty.Year2:

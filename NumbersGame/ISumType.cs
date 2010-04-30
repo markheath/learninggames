@@ -6,9 +6,10 @@ using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
-    public interface ISumType
+    public interface IProblemGenerator
     {
         string Name { get; }
-        Sum CreateRandom(Random random, Difficulty difficulty);
+        Difficulty Difficulty { get; }
+        Sum CreateRandom(Random random);
     }
 }

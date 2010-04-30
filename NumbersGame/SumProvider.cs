@@ -6,23 +6,21 @@ using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
-    public class SumProvider : ISumProvider
+    public class ProblemProvider : IProblemProvider
     {
         static Random random = new Random();
-        private List<ISumType> sumTypes;
-        private Difficulty difficulty;
+        private List<IProblemGenerator> problemGenerators;
 
-        public SumProvider(IEnumerable<ISumType> sumTypes, Difficulty difficulty)
+        public ProblemProvider(IEnumerable<IProblemGenerator> problemGenerators)
         {
-            this.sumTypes = new List<ISumType>();
-            this.sumTypes.AddRange(sumTypes);
-            this.difficulty = difficulty;
+            this.problemGenerators = new List<IProblemGenerator>();
+            this.problemGenerators.AddRange(problemGenerators);
         }
 
-        public Sum GetNextSum()
-        {
-            int sumTypeIndex = random.Next(0, sumTypes.Count);
-            return sumTypes[sumTypeIndex].CreateRandom(random, difficulty);
+        public Sum GetNextProblem()
+        {            
+            int sumTypeIndex = random.Next(0, problemGenerators.Count);
+            return problemGenerators[sumTypeIndex].CreateRandom(random);
         }
     }
 }
