@@ -5,12 +5,12 @@
     Title="NumbersPage" Height="300" Width="550">
     <Page.Resources>
         <Storyboard x:Key="wrongAnswerAnimation">
-            <DoubleAnimation Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5" />
-            <DoubleAnimation Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:1" Duration="0:0:0.5" />
+            <DoubleAnimation Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.25" />
+            <DoubleAnimation Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:0.75" Duration="0:0:0.25" />
         </Storyboard>
         <Storyboard x:Key="rightAnswerAnimation">
-            <DoubleAnimation Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5" />
-            <DoubleAnimation Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:1" Duration="0:0:0.5" />
+            <DoubleAnimation Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.25" />
+            <DoubleAnimation Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:0.75" Duration="0:0:0.25" />
         </Storyboard>
     </Page.Resources>
     <Grid>
@@ -50,12 +50,12 @@
         <Label FontSize="40" FontWeight="Bold" Foreground="Green" Margin="5" 
                Name="labelRight" Opacity="0" Grid.Row="3">well done!</Label>
         <FrameworkElement
-          my:StoryboardHelpers.Storyboard="{StaticResource rightAnswerAnimation}"
-          my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
-          my:StoryboardHelpers.BeginEvent="{Binding StartCorrectAnswer}" />
+            my:StoryboardHelpers.Storyboard="{StaticResource rightAnswerAnimation}"
+            my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
+            my:StoryboardHelpers.BeginEvent="{Binding StartCorrectAnswer}" />
         <FrameworkElement
-          my:StoryboardHelpers.Storyboard="{StaticResource wrongAnswerAnimation}"
-          my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
-          my:StoryboardHelpers.BeginEvent="{Binding StartWrongAnswer}" />
+            my:StoryboardHelpers.Storyboard="{StaticResource wrongAnswerAnimation}"
+            my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
+            my:StoryboardHelpers.BeginEvent="{Binding StartWrongAnswer}" />
     </Grid>
 </Page>
