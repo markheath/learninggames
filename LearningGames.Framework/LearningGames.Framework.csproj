@@ -78,6 +78,7 @@
     <Compile Include="INavigationService.cs" />
     <Compile Include="IQuiz.cs" />
     <Compile Include="ListUtils.cs" />
+    <Compile Include="NavigateMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
