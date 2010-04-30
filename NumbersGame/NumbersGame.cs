@@ -33,16 +33,8 @@ namespace LearningGames.Numbers
 
         private void CreateGui()
         {
-            var page = new NumbersPage();
-            ISumType[] sumTypes = new ISumType[] {
-                new AdditionSumType(),
-                new MultiplicationSumType(),
-                new SubtractionSumType()
-            };
-            var sumProvider = new SumProvider(sumTypes, Difficulty.Year3);
-            var sumQuiz = new SumQuiz(sumProvider);
-            NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
-            page.DataContext = numbers;
+            var page = new NewGame();
+            page.DataContext = new NewGameViewModel();
             gui = page;
         }
 

@@ -19,7 +19,13 @@ namespace LearningGames
             this.home = home;
             Messenger.Default.Register<GameSelectedMessage>(this,(g)=>OnGameSelected(g));
             Messenger.Default.Register<GoHomeMessage>(this, (m) => OnGoHomeMessage(m));
+            Messenger.Default.Register<NavigateMessage>(this, (m) => OnNavigate(m));
             Messenger.Default.Register<ShowSettingsMessage>(this, (m) => OnShowSettingsMessage(m));
+        }
+
+        private void OnNavigate(NavigateMessage message)
+        {
+            navigationService.NavigateTo(message.Target);
         }
 
         private void OnGameSelected(GameSelectedMessage gameSelectedMessage)
