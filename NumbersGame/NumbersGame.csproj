@@ -125,7 +125,6 @@
     <Compile Include="Sums\Subtraction.cs" />
     <Compile Include="Sums\SubtractionSumType.cs" />
     <Compile Include="SumProvider.cs" />
-    <Compile Include="SumQuiz.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -12,7 +12,7 @@ namespace LearningGames.UnitTests.NumbersGame
     [TestFixture]
     public class SumQuizTests
     {
-        SumQuiz sumQuiz;
+        QuizBase sumQuiz;
         Mock<IProblemProvider> sumProvider;
         Addition[] sums;
         int sumIndex;
@@ -27,7 +27,8 @@ namespace LearningGames.UnitTests.NumbersGame
             };
             sumProvider = new Mock<IProblemProvider>();
             sumProvider.Setup(x => x.GetNextProblem()).Returns(() => sums[sumIndex++]);
-            sumQuiz = new SumQuiz(sumProvider.Object);
+            sumQuiz = new QuizBase(sumProvider.Object);
+            sumQuiz.MaxAttempts = 0; // unlimited
         }
 
         [Test]

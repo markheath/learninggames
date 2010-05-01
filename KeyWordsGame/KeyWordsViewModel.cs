@@ -7,12 +7,13 @@ using System.Windows.Input;
 using LearningGames.Framework;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using LearningGames.Framework.Quiz;
 
 namespace LearningGames.KeyWords
 {
     class KeyWordsViewModel : ViewModelBase
     {
-        KeyWordsQuiz quiz;
+        QuizBase quiz;
         ICommand correctCommand;
         ICommand incorrectCommand;
         
@@ -20,7 +21,7 @@ namespace LearningGames.KeyWords
 
         public KeyWordsViewModel(IEnumerable<string> keyWords, ISpeechService speechService)
         {
-            this.quiz = new KeyWordsQuiz(keyWords);
+            this.quiz = new QuizBase(new QuizWordsProvider(keyWords, 20));
             this.speechService = speechService;
         }
 
@@ -54,7 +55,7 @@ namespace LearningGames.KeyWords
 
         void OnCorrectClick()
         {
-            quiz.Correct();
+            quiz.CurrentProblem.RaiseAnswerEvent(true);
             RaisePropertyChanged("Right");
             RaisePropertyChanged("KeyWord");
         }
@@ -76,8 +77,8 @@ namespace LearningGames.KeyWords
 
         void OnIncorrectClick()
         {
-            speechService.Speak((string)KeyWord, null);
-            quiz.Incorrect();
+            //speechService.Speak((string)KeyWord, null);
+            quiz.CurrentProblem.RaiseAnswerEvent(false); 
             RaisePropertyChanged("Wrong");
             RaisePropertyChanged("KeyWord");
         }
