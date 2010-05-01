@@ -50,7 +50,8 @@ namespace LearningGames.Numbers
             };
 
             var sumProvider = new ProblemProvider(from p in problemGenerators where p.Difficulty == (Difficulty)DifficultyLevel select p);
-            var sumQuiz = new SumQuiz(sumProvider);
+            var sumQuiz = new QuizBase(sumProvider);
+            sumQuiz.MaxAttempts = 5;
             NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
             return numbers;
         }

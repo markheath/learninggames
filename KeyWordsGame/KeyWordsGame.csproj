@@ -95,7 +95,6 @@
     <Compile Include="ISpeechService.cs" />
     <Compile Include="KeyWordProblem.cs" />
     <Compile Include="KeyWordsGame.cs" />
-    <Compile Include="KeyWordsQuiz.cs" />
     <Compile Include="KeyWordsPage.xaml.cs">
       <DependentUpon>KeyWordsPage.xaml</DependentUpon>
     </Compile>
