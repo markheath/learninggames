@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="QuizBase.cs" />
     <Compile Include="StoryboardHelpers.cs" />
+    <Compile Include="TextAnswerProblem.cs" />
     <Compile Include="TextProblemPresenter.xaml.cs">
       <DependentUpon>TextProblemPresenter.xaml</DependentUpon>
     </Compile>

@@ -17,7 +17,7 @@ namespace LearningGames.UnitTests.NumbersGame
         public void TestIsCorrect(int first, int second, string answer)
         {
             Division division = new Division(first, second);
-            Assert.IsTrue(division.IsCorrect(answer));
+            Assert.IsTrue(division.SubmitAnswer(answer));
         }
 
         [TestCase(0, 2, "")]
@@ -28,7 +28,7 @@ namespace LearningGames.UnitTests.NumbersGame
         public void TestIsCorrectWithIncorrectAnswers(int first, int second, string answer)
         {
             Division division = new Division(first, second);
-            Assert.IsFalse(division.IsCorrect(answer));
+            Assert.IsFalse(division.SubmitAnswer(answer));
         }
 
         [Test]

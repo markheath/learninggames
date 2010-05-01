@@ -19,7 +19,7 @@ namespace LearningGames.UnitTests.NumbersGame
         public void TestIsCorrect(int first, int second, string answer)
         {
             Addition addition = new Addition(first, second);
-            Assert.IsTrue(addition.IsCorrect(answer));
+            Assert.IsTrue(addition.SubmitAnswer(answer));
         }
 
         [TestCase(0, 0, "")]
@@ -31,7 +31,7 @@ namespace LearningGames.UnitTests.NumbersGame
         public void TestIsCorrectWithIncorrectAnswers(int first, int second, string answer)
         {
             Addition addition = new Addition(first, second);
-            Assert.IsFalse(addition.IsCorrect(answer));
+            Assert.IsFalse(addition.SubmitAnswer(answer));
         }
 
         [Test]

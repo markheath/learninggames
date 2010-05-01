@@ -17,7 +17,7 @@ namespace LearningGames.UnitTests.NumbersGame
         public void TestIsCorrect(int first, int second, string answer)
         {
             Multiplication multiplication = new Multiplication(first, second);
-            Assert.IsTrue(multiplication.IsCorrect(answer));
+            Assert.IsTrue(multiplication.SubmitAnswer(answer));
         }
 
         [TestCase(0, 0, "")]
@@ -28,7 +28,7 @@ namespace LearningGames.UnitTests.NumbersGame
         public void TestIsCorrectWithIncorrectAnswers(int first, int second, string answer)
         {
             Multiplication multiplication = new Multiplication(first, second);
-            Assert.IsFalse(multiplication.IsCorrect(answer));
+            Assert.IsFalse(multiplication.SubmitAnswer(answer));
         }
 
         [Test]
