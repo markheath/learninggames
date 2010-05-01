@@ -5,11 +5,56 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Input;
+using System.Diagnostics;
+using GalaSoft.MvvmLight;
 
 namespace LearningGames.Framework
 {
     public static class StoryboardHelpers
     {
+        // Storyboard Name exists to stop Visual Studio 2010 from crashing when we try to use the
+        // Storyboard attached property
+        #region Storyboard Name Property
+        public static string GetStoryboardName(DependencyObject target)
+        {
+            return (string)target.GetValue(StoryboardNameProperty);
+        }
+
+        public static void SetStoryboardName(DependencyObject target, string value)
+        {
+            target.SetValue(StoryboardNameProperty, value);
+        }
+
+        public static readonly DependencyProperty StoryboardNameProperty =
+            DependencyProperty.RegisterAttached(
+                "StoryboardName",
+                typeof(string),
+                typeof(StoryboardHelpers),
+                new UIPropertyMetadata(null, OnStoryboardNameChanged));
+
+        static void OnStoryboardNameChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
+        {
+            if (ViewModelBase.IsInDesignModeStatic)
+            {
+                return;
+            }
+            
+            string storyboardName = (string)e.NewValue;
+            FrameworkElement fe = (FrameworkElement)target;
+            var storyboard = fe.TryFindResource(storyboardName) as Storyboard;
+            if (storyboard != null)
+            {
+                var listener = new StoryboardListener(target, storyboard);
+                target.SetValue(StoryboardHelpers.StoryboardProperty, storyboard);
+                target.SetValue(StoryboardHelpers.StoryboardListenerProperty, listener);
+            }
+            else
+            {
+                // "Probably in Cider editor"
+            }
+        }
+        #endregion
+
         #region Storyboard Attached Property
         public static Storyboard GetStoryboard(DependencyObject target)
         {
