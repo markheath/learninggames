@@ -6,7 +6,7 @@ using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
-    public class Subtraction : Problem
+    public class Subtraction : TextAnswerProblem
     {
         public int First { get; private set; }
         public int Second { get; private set; }
@@ -17,14 +17,15 @@ namespace LearningGames.Numbers
             this.Second = second;
         }
 
-        public override bool IsCorrect(string answer)
+        protected override bool IsCorrectAnswer(string answer)
         {
+            bool isCorrect = false;
             int answerInt;
             if (Int32.TryParse(answer, out answerInt))
             {
-                return answerInt == First - Second;
+                isCorrect = (answerInt == First - Second);
             }
-            return false;
+            return isCorrect;
         }
 
         public override object Content

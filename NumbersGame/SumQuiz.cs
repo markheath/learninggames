@@ -9,23 +9,29 @@ namespace LearningGames.Numbers
     public class SumQuiz : QuizBase
     {
         IProblemProvider sumProvider;
-        Problem currentSum;
+        TextAnswerProblem currentSum;
 
         public SumQuiz(IProblemProvider sumProvider)
         {
             this.sumProvider = sumProvider;
-            this.currentSum = sumProvider.GetNextProblem();
+            GetNextProblem();
+        }
+
+        private void GetNextProblem()
+        {
+            this.currentSum = (TextAnswerProblem)this.sumProvider.GetNextProblem();
         }
 
         public override bool SubmitAnswer(string answer)
         {
-            bool correct = currentSum.IsCorrect(answer);
-            if (correct)
+            currentSum.SubmitAnswer(answer);
+            bool isCorrect = currentSum.IsCorrect;
+            if (isCorrect)
             {
                 Right++;
-                currentSum = sumProvider.GetNextProblem();
+                GetNextProblem();
             }
-            return correct;
+            return isCorrect;
         }
 
         public Problem CurrentSum
