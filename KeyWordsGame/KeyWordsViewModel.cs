@@ -18,7 +18,7 @@ namespace LearningGames.KeyWords
         
         ISpeechService speechService;
 
-        public KeyWordsViewModel(IEnumerable<KeyWord> keyWords, ISpeechService speechService)
+        public KeyWordsViewModel(IEnumerable<string> keyWords, ISpeechService speechService)
         {
             this.quiz = new KeyWordsQuiz(keyWords);
             this.speechService = speechService;
@@ -71,7 +71,7 @@ namespace LearningGames.KeyWords
 
         public object KeyWord
         {
-            get { return quiz.CurrentQuestionContent; }
+            get { return quiz.CurrentProblem.Content; }
         }
 
         void OnIncorrectClick()

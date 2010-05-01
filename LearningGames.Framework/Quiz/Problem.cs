@@ -11,12 +11,12 @@ namespace LearningGames.Framework.Quiz
         public abstract object Content { get; }
         public event EventHandler Answered;
         public bool IsCorrect { get; private set; }
-        public bool IsComplete { get; private set; }
+        public int Attempts { get; private set; }
 
-        protected void RaiseAnswerEvent(bool isCorrect)
+        public void RaiseAnswerEvent(bool isCorrect)
         {
-            this.IsComplete = true;
             this.IsCorrect = isCorrect;
+            this.Attempts++;
 
             if (Answered != null)
             {

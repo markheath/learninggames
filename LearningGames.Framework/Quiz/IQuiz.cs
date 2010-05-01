@@ -9,8 +9,7 @@ namespace LearningGames.Framework.Quiz
     {
         int Right { get; }
         int Wrong { get; }
-        bool SubmitAnswer(string answer);
-        object CurrentQuestionContent { get; }
+        Problem CurrentProblem { get; }
         event EventHandler Finished;
     }
 }

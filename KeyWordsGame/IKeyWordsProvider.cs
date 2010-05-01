@@ -8,6 +8,6 @@ namespace LearningGames.KeyWords
     interface IKeyWordsProvider
     {
         IEnumerable<string> GetGroupNames();
-        IEnumerable<KeyWord> GetKeyWords(string group);
+        IEnumerable<string> GetKeyWords(string group);
     }
 }

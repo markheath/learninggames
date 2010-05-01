@@ -9,39 +9,36 @@ namespace LearningGames.KeyWords
     class KeyWordsQuiz : QuizBase
     {
         QuizWordsProvider wordsProvider;
+        Problem currentProblem;
 
-        public KeyWordsQuiz(IEnumerable<KeyWord> keyWords)
+        public KeyWordsQuiz(IEnumerable<string> keyWords)
         {
             this.wordsProvider = new QuizWordsProvider(keyWords, 20);
+            currentProblem = wordsProvider.GetNextProblem();
         }
 
-        public override bool SubmitAnswer(string answer)
+        public override Problem CurrentProblem
         {
-            throw new NotImplementedException();
+            get { return currentProblem; }
         }
 
-        public override object CurrentQuestionContent
+        private KeyWordProblem CurrentKeyWordProblem
         {
-            get { return CurrentWord.Word; }
+            get { return (KeyWordProblem)currentProblem; }
         }
 
         public void Correct()
         {
             Right++;
-            wordsProvider.Right();
+            currentProblem.RaiseAnswerEvent(true);
+            currentProblem = wordsProvider.GetNextProblem();
         }
 
         public void Incorrect()
         {
             Wrong++;
-            wordsProvider.Wrong();
+            currentProblem.RaiseAnswerEvent(false);
+            currentProblem = wordsProvider.GetNextProblem();
         }
-
-        public KeyWord CurrentWord
-        {
-            get { return wordsProvider.CurrentWord; }
-        }
-
-
     }
 }

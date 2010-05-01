@@ -19,34 +19,38 @@ namespace LearningGames.Numbers
 
         private void GetNextProblem()
         {
+            if (this.currentSum != null)
+            {
+                this.currentSum.Answered -= new EventHandler(currentSum_Answered);
+            }
+
             this.currentSum = (TextAnswerProblem)this.sumProvider.GetNextProblem();
+            
+            if (this.currentSum != null)
+            {
+                this.currentSum.Answered += new EventHandler(currentSum_Answered);
+            }
         }
 
-        public override bool SubmitAnswer(string answer)
+        void currentSum_Answered(object sender, EventArgs e)
         {
-            currentSum.SubmitAnswer(answer);
             bool isCorrect = currentSum.IsCorrect;
             if (isCorrect)
             {
                 Right++;
                 GetNextProblem();
             }
-            return isCorrect;
+            else
+            {
+                Wrong++;
+            }
         }
 
-        public Problem CurrentSum
+        public override Problem CurrentProblem
         {
             get
             {
                 return currentSum;
-            }
-        }
-
-        public override object CurrentQuestionContent
-        {
-            get
-            {
-                return currentSum.Content;
             }
         }
     }

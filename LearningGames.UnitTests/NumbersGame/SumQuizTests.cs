@@ -39,55 +39,55 @@ namespace LearningGames.UnitTests.NumbersGame
         [Test]
         public void CurrentSumIsInitiallyPresent()
         {
-            Assert.IsNotNull(sumQuiz.CurrentSum);
+            Assert.IsNotNull(sumQuiz.CurrentProblem);
         }
 
         [Test]
         public void MovesToNextQuestionOnSubmitCorrectAnswer()
         {
-            Assert.AreSame(sums[0], sumQuiz.CurrentSum);
-            sumQuiz.SubmitAnswer("2");
-            Assert.AreSame(sums[1], sumQuiz.CurrentSum);                       
+            Assert.AreSame(sums[0], sumQuiz.CurrentProblem);
+            sums[0].SubmitAnswer("2");
+            Assert.AreSame(sums[1], sumQuiz.CurrentProblem);                       
         }
 
         [Test]
         public void StaysOnSameQuestionAfterSubmittingWrongAnswer()
         {
-            Assert.AreSame(sums[0], sumQuiz.CurrentSum);
-            sumQuiz.SubmitAnswer("3");
-            Assert.AreSame(sums[0], sumQuiz.CurrentSum);
+            Assert.AreSame(sums[0], sumQuiz.CurrentProblem);
+            sums[0].SubmitAnswer("3"); 
+            Assert.AreSame(sums[0], sumQuiz.CurrentProblem);
         }
 
         [Test]
         public void SubmitAnswerReturnsTrueForCorrectAnswer()
         {
-            Assert.IsTrue(sumQuiz.SubmitAnswer("2"));            
+            Assert.IsTrue(sums[0].SubmitAnswer("2"));            
         }
 
         [Test]
         public void SubmitAnswerReturnsFalseForIncorrectAnswer()
         {
-            Assert.IsFalse(sumQuiz.SubmitAnswer("3"));
+            Assert.IsFalse(sums[0].SubmitAnswer("3"));
         }
 
         [Test]
         public void ScoreRemainsSameForIncorrectAnswer()
         {
-            sumQuiz.SubmitAnswer("3");
+            sums[0].SubmitAnswer("3");
             Assert.AreEqual(0, sumQuiz.Right);
         }
 
         [Test]
         public void ScoreIncreasesForCorrectAnswer()
         {
-            sumQuiz.SubmitAnswer("2");
+            sums[0].SubmitAnswer("2");
             Assert.AreEqual(1, sumQuiz.Right);
         }
 
         [Test]
         public void CanProvideBindableContent()
         {
-            Assert.IsNotNull(sumQuiz.CurrentQuestionContent);
+            Assert.IsNotNull(sumQuiz.CurrentProblem.Content);
         }
     }
 }

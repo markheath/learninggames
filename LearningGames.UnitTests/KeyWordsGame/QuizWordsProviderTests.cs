@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using LearningGames.KeyWords;
+using LearningGames.Framework.Quiz;
 
 namespace LearningGames.UnitTests.KeyWordsGame
 {
     [TestFixture]
     public class QuizWordsProviderTests
     {
-        private static readonly KeyWord[] keyWords =
-            new KeyWord[] {
-                new KeyWord() { Word = "First" },
-                new KeyWord() { Word = "Second" },
-                new KeyWord() { Word = "Third" },
-                new KeyWord() { Word = "Fourth" },
+        private static readonly string[] keyWords =
+            {
+                "First", "Second", "Third", "Fourth"
             };
 
         [Test]
@@ -25,7 +23,7 @@ namespace LearningGames.UnitTests.KeyWordsGame
             QuizWordsProvider provider = new QuizWordsProvider(keyWords,2);
 
             // act & assert
-            Assert.IsNotNull(provider.CurrentWord);
+            Assert.IsNotNull(provider.GetNextProblem());
         }
 
         [Test]
@@ -33,13 +31,14 @@ namespace LearningGames.UnitTests.KeyWordsGame
         {
             // arrange
             QuizWordsProvider provider = new QuizWordsProvider(keyWords, 2);
-            KeyWord firstWord = provider.CurrentWord;
-
+            Problem firstProblem = provider.GetNextProblem();
+            firstProblem.RaiseAnswerEvent(true);
+            
             // act
-            provider.Right();
+            Problem secondProblem = provider.GetNextProblem();
 
             // assert
-            Assert.AreNotEqual(firstWord, provider.CurrentWord.Word);
+            Assert.AreNotEqual(firstProblem, secondProblem);
         }
 
         [Test]
@@ -47,14 +46,17 @@ namespace LearningGames.UnitTests.KeyWordsGame
         {
             // arrange
             QuizWordsProvider provider = new QuizWordsProvider(keyWords, 2);
-            KeyWord firstWord = provider.CurrentWord;
+            Problem firstProblem = provider.GetNextProblem();
+            firstProblem.RaiseAnswerEvent(true);
 
             // act
-            provider.Right();
-            provider.Right();
+            Problem secondProblem = provider.GetNextProblem();
+            secondProblem.RaiseAnswerEvent(true); 
+
+            Problem lastProblem = provider.GetNextProblem();
 
             // assert
-            Assert.IsNull(provider.CurrentWord);
+            Assert.IsNull(lastProblem);
         }
 
         [Test]
@@ -62,14 +64,17 @@ namespace LearningGames.UnitTests.KeyWordsGame
         {
             // arrange
             QuizWordsProvider provider = new QuizWordsProvider(keyWords, 2);
-            KeyWord firstWord = provider.CurrentWord;
+            Problem firstProblem = provider.GetNextProblem();
 
             // act
-            provider.Wrong();
-            provider.Right();
+            firstProblem.RaiseAnswerEvent(false);
+            Problem secondProblem = provider.GetNextProblem();
+            secondProblem.RaiseAnswerEvent(true);
+
+            Problem thirdProblem = provider.GetNextProblem();
 
             // assert
-            Assert.AreEqual(firstWord, provider.CurrentWord);
+            Assert.AreEqual(((KeyWordProblem)firstProblem).Word, ((KeyWordProblem)thirdProblem).Word);
         }
 
         [Test]
@@ -77,15 +82,18 @@ namespace LearningGames.UnitTests.KeyWordsGame
         {
             // arrange
             QuizWordsProvider provider = new QuizWordsProvider(keyWords, 2);
-            KeyWord firstWord = provider.CurrentWord;
+            Problem firstProblem = provider.GetNextProblem();
 
             // act
-            provider.Wrong();
-            provider.Right();
-            provider.Wrong();
-
+            firstProblem.RaiseAnswerEvent(false);
+            Problem secondProblem = provider.GetNextProblem();
+            secondProblem.RaiseAnswerEvent(true);
+            Problem thirdProblem = provider.GetNextProblem();
+            secondProblem.RaiseAnswerEvent(false);
+            Problem fourthProblem = provider.GetNextProblem();
+            
             // assert
-            Assert.IsNull(provider.CurrentWord);
+            Assert.IsNull(fourthProblem);
         }
     }
 }

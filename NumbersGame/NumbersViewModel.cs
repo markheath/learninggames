@@ -79,7 +79,7 @@ namespace LearningGames.Numbers
         {
             get 
             { 
-                return quiz.CurrentQuestionContent; 
+                return quiz.CurrentProblem.Content; 
             }
         }
 
@@ -110,7 +110,8 @@ namespace LearningGames.Numbers
 
         private void OnSubmitAnswer()
         {
-            if (quiz.SubmitAnswer(Answer))
+            var problem = (TextAnswerProblem)quiz.CurrentProblem;
+            if (problem.SubmitAnswer(Answer))
             {
                 QuestionState = QuestionState.Correct;
                 startCorrectAnswer.Fire(this);
