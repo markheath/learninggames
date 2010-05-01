@@ -6,9 +6,10 @@ using System.ComponentModel;
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Media.Animation;
-using LearningGames.Framework;
+using LearningGames.Framework.Quiz;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {

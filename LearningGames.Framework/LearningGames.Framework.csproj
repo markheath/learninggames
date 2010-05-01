@@ -71,17 +71,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Difficulty.cs" />
+    <Compile Include="Quiz\Difficulty.cs" />
     <Compile Include="FocusHelpers.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="IGame.cs" />
     <Compile Include="INavigationService.cs" />
-    <Compile Include="IProblemGenerator.cs" />
-    <Compile Include="IProblemProvider.cs" />
-    <Compile Include="IQuiz.cs" />
+    <Compile Include="Quiz\IProblemGenerator.cs" />
+    <Compile Include="Quiz\IProblemProvider.cs" />
+    <Compile Include="Quiz\IQuiz.cs" />
     <Compile Include="ListUtils.cs" />
     <Compile Include="NavigateMessage.cs" />
-    <Compile Include="Problem.cs" />
+    <Compile Include="Quiz\Problem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -95,10 +95,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="QuizBase.cs" />
+    <Compile Include="Quiz\QuizBase.cs" />
     <Compile Include="StoryboardHelpers.cs" />
-    <Compile Include="TextAnswerProblem.cs" />
-    <Compile Include="TextProblemPresenter.xaml.cs">
+    <Compile Include="Quiz\TextAnswerProblem.cs" />
+    <Compile Include="Quiz\TextProblemPresenter.xaml.cs">
       <DependentUpon>TextProblemPresenter.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -129,7 +129,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="TextProblemPresenter.xaml">
+    <Page Include="Quiz\TextProblemPresenter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
