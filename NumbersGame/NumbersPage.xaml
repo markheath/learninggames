@@ -50,11 +50,11 @@
         <Label FontSize="40" FontWeight="Bold" Foreground="Green" Margin="5" 
                Name="labelRight" Opacity="0" Grid.Row="3">well done!</Label>
         <FrameworkElement
-            my:StoryboardHelpers.Storyboard="{StaticResource rightAnswerAnimation}"
+            my:StoryboardHelpers.StoryboardName="rightAnswerAnimation"
             my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
             my:StoryboardHelpers.BeginEvent="{Binding StartCorrectAnswer}" />
         <FrameworkElement
-            my:StoryboardHelpers.Storyboard="{StaticResource wrongAnswerAnimation}"
+            my:StoryboardHelpers.StoryboardName="wrongAnswerAnimation"
             my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
             my:StoryboardHelpers.BeginEvent="{Binding StartWrongAnswer}" />
     </Grid>
