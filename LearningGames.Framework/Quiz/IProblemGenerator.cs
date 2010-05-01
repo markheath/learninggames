@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using LearningGames.Framework;
 
-namespace LearningGames.Framework
+namespace LearningGames.Framework.Quiz
 {
     public interface IProblemGenerator
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace LearningGames.Framework
+namespace LearningGames.Framework.Quiz
 {
     public abstract class Problem
     {

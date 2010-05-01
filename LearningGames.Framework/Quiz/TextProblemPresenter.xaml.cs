@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LearningGames.Framework
+namespace LearningGames.Framework.Quiz
 {
     /// <summary>
     /// Interaction logic for TextProblemPresenter.xaml

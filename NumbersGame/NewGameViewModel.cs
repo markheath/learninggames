@@ -5,8 +5,9 @@ using System.Text;
 using GalaSoft.MvvmLight;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
-using LearningGames.Framework;
+using LearningGames.Framework.Quiz;
 using GalaSoft.MvvmLight.Messaging;
+using LearningGames.Framework;
 
 namespace LearningGames.Numbers
 {
