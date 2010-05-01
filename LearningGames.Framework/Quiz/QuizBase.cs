@@ -20,8 +20,7 @@ namespace LearningGames.Framework.Quiz
             }
         }
 
-        public abstract object CurrentQuestionContent { get; }
-        public abstract bool SubmitAnswer(string answer);
+        public abstract Problem CurrentProblem { get; }
         
     }
 }

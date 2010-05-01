@@ -23,15 +23,12 @@ namespace LearningGames.KeyWords
             return groups;
         }
 
-        public IEnumerable<KeyWord> GetKeyWords(string groupName)
+        public IEnumerable<string> GetKeyWords(string groupName)
         {
-            var keyWords = from groupNode in xraw.Elements("Group") where groupNode.Attribute("Name").Value == groupName
+            var keyWords = from groupNode in xraw.Elements("Group")
+                           where groupNode.Attribute("Name").Value == groupName
                            from keyWordNode in groupNode.Elements("KeyWord")
-                           select new KeyWord
-                            {
-                                Word = keyWordNode.Value,
-                                Group = groupName,
-                            };
+                           select keyWordNode.Value;
             return keyWords;
         }
 

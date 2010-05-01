@@ -121,7 +121,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="QuestionState.cs" />
     <Compile Include="Sums\MultiplicationSumType.cs" />
     <Compile Include="Sums\Subtraction.cs" />
     <Compile Include="Sums\SubtractionSumType.cs" />

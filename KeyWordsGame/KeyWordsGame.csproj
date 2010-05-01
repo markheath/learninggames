@@ -93,7 +93,7 @@
   <ItemGroup>
     <Compile Include="IKeyWordsProvider.cs" />
     <Compile Include="ISpeechService.cs" />
-    <Compile Include="KeyWord.cs" />
+    <Compile Include="KeyWordProblem.cs" />
     <Compile Include="KeyWordsGame.cs" />
     <Compile Include="KeyWordsQuiz.cs" />
     <Compile Include="KeyWordsPage.xaml.cs">

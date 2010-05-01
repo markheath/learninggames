@@ -3,38 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LearningGames.Framework;
+using LearningGames.Framework.Quiz;
 
 namespace LearningGames.KeyWords
 {
-    public class QuizWordsProvider
+    public class QuizWordsProvider : IProblemProvider
     {
-        IList<WordAttempts> keyWordsList;
         int currentIndex = 0;
         int maxAttemptsPerWord = 2;
 
-        public QuizWordsProvider(IEnumerable<KeyWord> keyWords, int words)
+        IList<KeyWordProblem> keyWordsList;
+
+        public QuizWordsProvider(IEnumerable<string> keyWords, int words)
         {
             var list = keyWords.ToList();
             list.Shuffle();
 
-            keyWordsList = new List<WordAttempts>();
+            keyWordsList = new List<KeyWordProblem>();
             foreach(var keyWord in list.Take(words))
             {
-                keyWordsList.Add(new WordAttempts() { KeyWord = keyWord });
+                keyWordsList.Add(new KeyWordProblem(keyWord));
             }
         }
 
-        public void Wrong()
+        public Problem GetNextProblem()
         {
-            keyWordsList[currentIndex].Attempts++;
             MoveNext();
-        }
-
-        public void Right()
-        {
-            keyWordsList[currentIndex].Attempts++;
-            keyWordsList[currentIndex].Success = true;
-            MoveNext();
+            return CurrentProblem;
         }
 
         private void MoveNext()
@@ -43,7 +38,7 @@ namespace LearningGames.KeyWords
             for (int testIndex = currentIndex + 1; testIndex < currentIndex + keyWordsList.Count; testIndex++)
             {
                 int realIndex = testIndex % keyWordsList.Count;
-                if (keyWordsList[realIndex].Success == false && keyWordsList[realIndex].Attempts < maxAttemptsPerWord)
+                if (keyWordsList[realIndex].IsCorrect == false && keyWordsList[realIndex].Attempts < maxAttemptsPerWord)
                 {
                     found = true;
                     currentIndex = realIndex;
@@ -56,16 +51,10 @@ namespace LearningGames.KeyWords
             }
         }
 
-        public KeyWord CurrentWord
+        private KeyWordProblem CurrentProblem
         {
-            get { return currentIndex == -1 ? null : keyWordsList[currentIndex].KeyWord; }
+            get { return currentIndex == -1 ? null : keyWordsList[currentIndex]; }
         }
     }
 
-    class WordAttempts
-    {
-        public KeyWord KeyWord { get; set; }
-        public int Attempts { get; set; }
-        public bool Success { get; set; }
-    }
 }
