@@ -9,6 +9,7 @@ namespace LearningGames.Framework.Quiz
     {
         private IProblemProvider problemProvider;
         public event EventHandler Finished;
+        public event EventHandler Updated;
 
         public int Right { get; private set; }
         public int Wrong { get; private set; }
@@ -42,10 +43,19 @@ namespace LearningGames.Framework.Quiz
             if (this.CurrentProblem != null)
             {
                 this.CurrentProblem.Answered += new EventHandler(currentProblem_Answered);
+                RaiseUpdatedEvent();
             }
             else
             {
                 RaiseFinishedEvent();
+            }
+        }
+
+        private void RaiseUpdatedEvent()
+        {
+            if (Updated != null)
+            {
+                Updated(this, EventArgs.Empty);
             }
         }
 

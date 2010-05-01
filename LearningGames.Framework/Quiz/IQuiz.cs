@@ -11,5 +11,6 @@ namespace LearningGames.Framework.Quiz
         int Wrong { get; }
         Problem CurrentProblem { get; }
         event EventHandler Finished;
+        event EventHandler Updated; // score, currentproblem
     }
 }

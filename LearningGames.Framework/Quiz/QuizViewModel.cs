@@ -11,46 +11,17 @@ namespace LearningGames.Framework.Quiz
     public class QuizViewModel : ViewModelBase
     {
         IQuiz quiz;
-        QuestionState questionState;
-
-        private ICommand completedCommand;
-        private EventFirer startCorrectAnswer;
-        private EventFirer startWrongAnswer;
 
         public QuizViewModel(IQuiz quiz)
         {
             this.quiz = quiz;
-            startCorrectAnswer = new EventFirer();
-            startWrongAnswer = new EventFirer();
-            completedCommand = new RelayCommand(() => OnAnimationCompleted());
+            quiz.Updated += new EventHandler(quiz_Updated);
         }
 
-        public ICommand CompletedCommand { get { return completedCommand; } }
-        public IEvent StartCorrectAnswer { get { return startCorrectAnswer; } }
-        public IEvent StartWrongAnswer { get { return startWrongAnswer; } }
-
-        public QuestionState QuestionState
+        void quiz_Updated(object sender, EventArgs e)
         {
-            get
-            {
-                return questionState;
-            }
-            set
-            {
-                if (questionState != value)
-                {
-                    questionState = value;
-                    RaisePropertyChanged("QuestionState");
-                    RaisePropertyChanged("AllowAnswer");
-                }
-            }
-        }
-
-        void OnAnimationCompleted()
-        {
-            QuestionState = QuestionState.Unanswered;
-            // might not have changed, but fire here anyway
             RaisePropertyChanged("Problem");
+            RaisePropertyChanged("Score");
         }
 
         public object Problem
