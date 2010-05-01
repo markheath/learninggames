@@ -33,12 +33,12 @@ namespace LearningGames.Numbers
                     second = random.Next(1, 6);
                     break;
                 case Difficulty.Year4:
-                    first = random.Next(1, 11);
+                    first = random.Next(2, 11);
                     second = random.Next(2, 11);
                     break;
                 case Difficulty.Year5:
                 default:
-                    first = random.Next(1, 13);
+                    first = random.Next(2, 13);
                     second = random.Next(2, 13);
                     break;
             }
