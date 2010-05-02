@@ -28,6 +28,9 @@ namespace LearningGames.Numbers
             {
                 case Difficulty.Year1:
                 case Difficulty.Year2:
+                    first = random.Next(1, 3);
+                    second = random.Next(1, 6);
+                    break;
                 case Difficulty.Year3:
                     first = random.Next(1, 11);
                     second = random.Next(1, 6);

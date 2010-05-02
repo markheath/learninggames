@@ -39,6 +39,7 @@ namespace LearningGames.Numbers
                 new AdditionProblemGenerator(Difficulty.Year3),
                 new AdditionProblemGenerator(Difficulty.Year4),
                 new AdditionProblemGenerator(Difficulty.Year5),
+                new MultiplicationProblemGenerator(Difficulty.Year2),
                 new MultiplicationProblemGenerator(Difficulty.Year3),
                 new MultiplicationProblemGenerator(Difficulty.Year4),
                 new MultiplicationProblemGenerator(Difficulty.Year5),
