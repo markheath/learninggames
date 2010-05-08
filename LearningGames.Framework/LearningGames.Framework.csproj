@@ -85,6 +85,11 @@
     <Compile Include="Quiz\IQuiz.cs" />
     <Compile Include="ListUtils.cs" />
     <Compile Include="NavigateMessage.cs" />
+    <Compile Include="Quiz\MultiChoiceProblem.cs" />
+    <Compile Include="Quiz\MultiChoiceProblemPresenter.xaml.cs">
+      <DependentUpon>MultiChoiceProblemPresenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Quiz\MultiChoiceViewModel.cs" />
     <Compile Include="Quiz\Problem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -140,6 +145,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Quiz\MultiChoiceProblemPresenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Quiz\QuizPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

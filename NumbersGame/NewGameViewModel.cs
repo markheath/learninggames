@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.Command;
 using LearningGames.Framework.Quiz;
 using GalaSoft.MvvmLight.Messaging;
 using LearningGames.Framework;
+using LearningGames.Numbers.Selections;
 
 namespace LearningGames.Numbers
 {
@@ -50,6 +51,8 @@ namespace LearningGames.Numbers
                 new SubtractionProblemGenerator(Difficulty.Year3),
                 new SubtractionProblemGenerator(Difficulty.Year4),
                 new SubtractionProblemGenerator(Difficulty.Year5),
+                new FindTheBiggestProblemGenerator(Difficulty.Year2),
+                new FindTheBiggestProblemGenerator(Difficulty.Year3),
             };
 
             var sumProvider = new ProblemProvider(from p in problemGenerators where p.Difficulty == (Difficulty)DifficultyLevel select p);
