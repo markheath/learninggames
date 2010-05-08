@@ -96,11 +96,13 @@
       <DependentUpon>ResultsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ResultsViewModel.cs" />
+    <Compile Include="Selections\FindTheBiggest.cs" />
+    <Compile Include="Selections\FindTheBiggestProblemGenerator.cs" />
     <Compile Include="SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sums\Addition.cs" />
-    <Compile Include="Sums\AdditionSumType.cs" />
+    <Compile Include="Sums\AdditionProblemGenerator.cs" />
     <Compile Include="Sums\Division.cs" />
     <Compile Include="Sums\Multiplication.cs" />
     <Compile Include="NumbersGame.cs" />
@@ -117,7 +119,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Sums\MultiplicationSumType.cs" />
+    <Compile Include="Sums\MultiplicationProblemGenerator.cs" />
     <Compile Include="Sums\Subtraction.cs" />
     <Compile Include="Sums\SubtractionSumType.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
