@@ -22,6 +22,8 @@ namespace LearningGames.Framework.Quiz
         public TextProblemPresenter()
         {
             InitializeComponent();
+            this.Loaded += (sender, e) => textBoxAnswer.Focus();
         }
+
     }
 }

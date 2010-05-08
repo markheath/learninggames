@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.ComponentModel;
-using System.Windows.Input;
-using System.Windows;
-using System.Windows.Media.Animation;
-using LearningGames.Framework.Quiz;
 using GalaSoft.MvvmLight;
+using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
-using LearningGames.Framework;
 
-namespace LearningGames.Numbers
+namespace LearningGames.Framework.Quiz
 {
-    public class NumbersViewModel : ViewModelBase
+    public class TextAnswerViewModel : ViewModelBase
     {
-        IQuiz quiz;
-        string answer;        
-        QuestionState questionState;
+        private TextAnswerProblem problem;
+        private string answer;
+        private QuestionState questionState;
 
         private ICommand completedCommand;
         private ICommand submitAnswerCommand;
@@ -25,9 +20,9 @@ namespace LearningGames.Numbers
         private EventFirer startWrongAnswer;
         private EventFirer setTextboxFocus;
 
-        public NumbersViewModel(IQuiz quiz)
+        public TextAnswerViewModel(TextAnswerProblem problem)
         {
-            this.quiz = quiz;            
+            this.problem = problem;
             startCorrectAnswer = new EventFirer();
             startWrongAnswer = new EventFirer();
             setTextboxFocus = new EventFirer();
@@ -39,7 +34,7 @@ namespace LearningGames.Numbers
         public ICommand SubmitAnswerCommand { get { return submitAnswerCommand; } }
         public IEvent StartCorrectAnswer { get { return startCorrectAnswer; } }
         public IEvent StartWrongAnswer { get { return startWrongAnswer; } }
-        public IEvent SetTextboxFocus { get { return setTextboxFocus; } }        
+        public IEvent SetTextboxFocus { get { return setTextboxFocus; } }
 
         public QuestionState QuestionState
         {
@@ -72,26 +67,18 @@ namespace LearningGames.Numbers
             QuestionState = QuestionState.Unanswered;
             setTextboxFocus.Fire(this);
             // might not have changed, but fire here anyway
-            RaisePropertyChanged("Sum");            
+            RaisePropertyChanged("Sum");
         }
 
-        public object Sum
-        {
-            get 
-            { 
-                return quiz.CurrentProblem.Content; 
-            }
-        }
-
-        public int Score
+        public object Problem
         {
             get
             {
-                return quiz.Right;
+                return problem.Content;
             }
         }
-       
-        public string Answer 
+
+        public string Answer
         {
             get
             {
@@ -110,7 +97,6 @@ namespace LearningGames.Numbers
 
         private void OnSubmitAnswer()
         {
-            var problem = (TextAnswerProblem)quiz.CurrentProblem;
             if (problem.SubmitAnswer(Answer))
             {
                 QuestionState = QuestionState.Correct;

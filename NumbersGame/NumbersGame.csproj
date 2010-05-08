@@ -104,10 +104,6 @@
     <Compile Include="Sums\Division.cs" />
     <Compile Include="Sums\Multiplication.cs" />
     <Compile Include="NumbersGame.cs" />
-    <Compile Include="NumbersPage.xaml.cs">
-      <DependentUpon>NumbersPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NumbersViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -138,12 +134,6 @@
     <Page Include="NewGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="NumbersPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="ResultsPage.xaml">
       <SubType>Designer</SubType>

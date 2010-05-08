@@ -9,6 +9,7 @@ namespace LearningGames.Framework.Quiz
     public abstract class Problem
     {
         public abstract object Content { get; }
+        public abstract FrameworkElement Presenter { get; }
         public event EventHandler Answered;
         public bool IsCorrect { get; private set; }
         public int Attempts { get; private set; }
@@ -23,5 +24,7 @@ namespace LearningGames.Framework.Quiz
                 Answered(this, EventArgs.Empty);
             }
         }
+
+        public abstract object GetViewModel();
     }    
 }

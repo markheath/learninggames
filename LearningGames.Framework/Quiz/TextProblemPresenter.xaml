@@ -3,24 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:LearningGames.Framework"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <UserControl.Resources>
+        <Storyboard x:Key="wrongAnswerAnimation">
+            <DoubleAnimation Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.25" />
+            <DoubleAnimation Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:0.75" Duration="0:0:0.25" />
+        </Storyboard>
+        <Storyboard x:Key="rightAnswerAnimation">
+            <DoubleAnimation Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.25" />
+            <DoubleAnimation Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:0.75" Duration="0:0:0.25" />
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220*" />
             <ColumnDefinition Width="80*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="231*" />
-            <RowDefinition Height="69*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border Grid.ColumnSpan="2" Margin="5" BorderBrush="Blue" BorderThickness="2" CornerRadius="4">
-            <ContentPresenter Content="{Binding Problem}" />
+            <Label FontSize="40" FontWeight="Bold" Content="{Binding Problem}" />
         </Border>
-        <Border Width="150" Height="50" Grid.ColumnSpan="2" Margin="5" BorderBrush="Blue" BorderThickness="2" CornerRadius="4">
-            <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="Green">Well Done!</Label>
-        </Border>
-        <TextBox Grid.Row="1" Text="{Binding Answer, Mode=TwoWay}" Margin="10" FontSize="20" BorderBrush="Blue"  />
+        <TextBox Grid.Row="1" 
+                 x:Name="textBoxAnswer"
+                 Text="{Binding Answer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 IsEnabled="{Binding AllowAnswer}"
+                 my:FocusHelpers.FocusEvent="{Binding SetTextboxFocus}"
+                 Margin="10" FontFamily="Segoe UI" FontSize="40" FontWeight="Bold" BorderBrush="Blue" MaxLength="5"  />
         <Button Content="OK" Grid.Column="1" Grid.Row="1" Margin="10" FontSize="20" Command="{Binding SubmitAnswerCommand}" />
+        <Label FontSize="40" FontWeight="Bold" Foreground="Red" Margin="5" 
+               Name="labelWrong" Opacity="0" VerticalAlignment="Bottom">oops! try again</Label>
+        <Label FontSize="40" FontWeight="Bold" Foreground="Green" Margin="5" 
+               Name="labelRight" Opacity="0" VerticalAlignment="Bottom">well done!</Label>
+        <FrameworkElement
+            my:StoryboardHelpers.StoryboardName="rightAnswerAnimation"
+            my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
+            my:StoryboardHelpers.BeginEvent="{Binding StartCorrectAnswer}" />
+        <FrameworkElement
+            my:StoryboardHelpers.StoryboardName="wrongAnswerAnimation"
+            my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
+            my:StoryboardHelpers.BeginEvent="{Binding StartWrongAnswer}" />
     </Grid>
 </UserControl>

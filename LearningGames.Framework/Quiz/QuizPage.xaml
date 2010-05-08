@@ -20,7 +20,6 @@
                Grid.Row="0"
                HorizontalAlignment="Right" 
                Content="{Binding Score}" />
-        <Label Margin="5" Grid.Row="1" FontFamily="Segoe UI" 
-               FontSize="40" FontWeight="Bold" Content="{Binding Problem}"/>
+        <ContentPresenter Margin="5" Grid.Row="1" Content="{Binding ProblemPresenter}" />
     </Grid>
 </Page>

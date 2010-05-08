@@ -11,17 +11,16 @@ using System.ComponentModel;
 namespace LearningGames.UnitTests.NumbersGame
 {
     [TestFixture]
-    public class NumbersViewModelTests
+    public class TextAnswerViewModelTests
     {
-        NumbersViewModel viewModel;
-        Mock<IQuiz> quizMock;
+        TextAnswerViewModel viewModel;        
         List<PropertyChangedEventArgs> propertyChangedEvents;
 
         [SetUp]
         public void SetUp()
         {
-            this.quizMock = new Mock<IQuiz>();
-            this.viewModel = new NumbersViewModel(quizMock.Object);
+            var tap = new Mock<TextAnswerProblem>();
+            this.viewModel = new TextAnswerViewModel(tap.Object);
             this.propertyChangedEvents = new List<PropertyChangedEventArgs>();
             this.viewModel.PropertyChanged += (sender, args) => propertyChangedEvents.Add(args);            
         }
@@ -39,12 +38,12 @@ namespace LearningGames.UnitTests.NumbersGame
             Assert.IsTrue(viewModel.AllowAnswer);
         }
 
-        [Test]
+        /* For QuizViewModel [Test]
         public void ScoreIsReturnedFromQuiz()
         {
             quizMock.Setup(x => x.Right).Returns(5);
             Assert.AreEqual(5, viewModel.Score);
-        }
+        }*/
 
         [Test]
         public void DontAllowAnswerWhilePlayingCorrectAnswerAnimation()
