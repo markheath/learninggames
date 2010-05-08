@@ -20,15 +20,15 @@ namespace LearningGames.Framework.Quiz
 
         void quiz_Updated(object sender, EventArgs e)
         {
-            RaisePropertyChanged("Problem");
             RaisePropertyChanged("Score");
+            RaisePropertyChanged("ProblemPresenter");
         }
 
-        public object Problem
+        public object ProblemPresenter
         {
             get
             {
-                return quiz.CurrentProblem.Content;
+                return quiz.CurrentProblem.Presenter;
             }
         }
 

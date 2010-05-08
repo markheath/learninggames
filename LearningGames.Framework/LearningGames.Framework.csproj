@@ -106,6 +106,7 @@
     </Compile>
     <Compile Include="Quiz\QuizViewModel.cs" />
     <Compile Include="Quiz\ProblemProvider.cs" />
+    <Compile Include="Quiz\TextAnswerViewModel.cs" />
     <Compile Include="StoryboardHelpers.cs" />
     <Compile Include="Quiz\TextAnswerProblem.cs" />
     <Compile Include="Quiz\TextProblemPresenter.xaml.cs">

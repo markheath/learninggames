@@ -24,7 +24,7 @@ namespace LearningGames
         public MainWindow()
         {
             InitializeComponent();
-            navigationFrame.Navigated += (sender, e) => { this.SizeToContent = SizeToContent.WidthAndHeight; };
+            //navigationFrame.Navigated += (sender, e) => { this.SizeToContent = SizeToContent.WidthAndHeight; };
         }
     }
 }

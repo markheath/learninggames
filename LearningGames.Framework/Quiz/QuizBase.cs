@@ -43,6 +43,7 @@ namespace LearningGames.Framework.Quiz
             if (this.CurrentProblem != null)
             {
                 this.CurrentProblem.Answered += new EventHandler(currentProblem_Answered);
+                this.CurrentProblem.Presenter.DataContext = this.CurrentProblem.GetViewModel();
                 RaiseUpdatedEvent();
             }
             else

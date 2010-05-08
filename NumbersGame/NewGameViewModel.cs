@@ -25,13 +25,15 @@ namespace LearningGames.Numbers
 
         private void OnNewGame()
         {
-            var page = new NumbersPage();
-            NumbersViewModel numbers = CreateNumbersViewModel();
+            //var page = new NumbersPage();
+            //NumbersViewModel numbers = CreateNumbersViewModel();
+            var page = new QuizPage();
+            var numbers = CreateNumbersViewModel();
             page.DataContext = numbers;
             Messenger.Default.Send(new NavigateMessage() { Target = page });            
         }
 
-        private NumbersViewModel CreateNumbersViewModel()
+        private QuizViewModel CreateNumbersViewModel()
         {
             IProblemGenerator[] problemGenerators = new IProblemGenerator[] {
                 new AdditionProblemGenerator(Difficulty.Year1),
@@ -53,7 +55,7 @@ namespace LearningGames.Numbers
             var sumProvider = new ProblemProvider(from p in problemGenerators where p.Difficulty == (Difficulty)DifficultyLevel select p);
             var sumQuiz = new QuizBase(sumProvider);
             sumQuiz.MaxAttempts = 5;
-            NumbersViewModel numbers = new NumbersViewModel(sumQuiz);
+            QuizViewModel numbers = new QuizViewModel(sumQuiz);
             return numbers;
         }
 
