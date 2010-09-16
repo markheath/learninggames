@@ -17,7 +17,7 @@ namespace LearningGames.Numbers
     /// <summary>
     /// Interaction logic for ResultsPage.xaml
     /// </summary>
-    public partial class ResultsPage : Page
+    public partial class ResultsPage : UserControl
     {
         public ResultsPage()
         {

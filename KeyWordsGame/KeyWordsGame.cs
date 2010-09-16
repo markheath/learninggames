@@ -8,22 +8,22 @@ using System.ComponentModel.Composition;
 namespace LearningGames.KeyWords
 {
     [Export(typeof(IGame))]
-    class KeyWordsGame : IGame
+    public class KeyWordsGame : IGame
     {
-        Page gui;
-        Page settingsGui;
+        UserControl gui;
+        UserControl settingsGui;
 
         public KeyWordsGame()
         {
 
         }
 
-        public Page Gui
+        public UserControl Gui
         {
             get { if (gui == null) CreateGui(); return gui; }
         }
 
-        public Page SettingsGui
+        public UserControl SettingsGui
         {
             get { if (settingsGui == null) CreateSettingsGui(); return settingsGui; }
         }
@@ -33,7 +33,10 @@ namespace LearningGames.KeyWords
             var keywordsPage = new KeyWordsPage();
             var keyWordProvider = new KeyWordXmlProvider("KeyWords.xml");
             var wordsList = keyWordProvider.GetKeyWords("Y1/2 Key Words");
-            var speechService = new SpeechService();
+            ISpeechService speechService = null; 
+#if !SILVERLIGHT
+            speechService = new SpeechService();
+#endif
             keywordsPage.DataContext = new KeyWordsViewModel(wordsList, speechService);
             gui = keywordsPage;
         }

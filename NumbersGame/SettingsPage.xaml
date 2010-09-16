@@ -1,8 +1,7 @@
-﻿<Page x:Class="LearningGames.Numbers.SettingsPage"
+﻿<UserControl x:Class="LearningGames.Numbers.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="SettingsPage">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Grid>
         
     </Grid>
-</Page>
+</UserControl>

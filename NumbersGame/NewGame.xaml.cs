@@ -17,7 +17,7 @@ namespace LearningGames.Numbers
     /// <summary>
     /// Interaction logic for NewGame.xaml
     /// </summary>
-    public partial class NewGame : Page
+    public partial class NewGame : UserControl
     {
         public NewGame()
         {

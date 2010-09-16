@@ -30,7 +30,7 @@ namespace LearningGames.Framework
                 "StoryboardName",
                 typeof(string),
                 typeof(StoryboardHelpers),
-                new UIPropertyMetadata(null, OnStoryboardNameChanged));
+                new PropertyMetadata(null, OnStoryboardNameChanged));
 
         static void OnStoryboardNameChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
@@ -41,7 +41,12 @@ namespace LearningGames.Framework
             
             string storyboardName = (string)e.NewValue;
             FrameworkElement fe = (FrameworkElement)target;
-            var storyboard = fe.TryFindResource(storyboardName) as Storyboard;
+            Storyboard storyboard;
+#if SILVERLIGHT
+            storyboard = (Storyboard)fe.Resources[storyboardName];
+#else
+            storyboard = fe.TryFindResource(storyboardName) as Storyboard;
+#endif
             if (storyboard != null)
             {
                 var listener = new StoryboardListener(target, storyboard);
@@ -71,7 +76,7 @@ namespace LearningGames.Framework
                 "Storyboard",
                 typeof(Storyboard),
                 typeof(StoryboardHelpers),
-                new UIPropertyMetadata(null, OnStoryboardChanged));
+                new PropertyMetadata(null, OnStoryboardChanged));
 
         static void OnStoryboardChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
@@ -88,7 +93,7 @@ namespace LearningGames.Framework
                 "StoryboardListener",
                 typeof(StoryboardListener),
                 typeof(StoryboardHelpers),
-                new FrameworkPropertyMetadata());
+                new PropertyMetadata(null));
         #endregion
 
         #region Storyboard Completed Attached Property
@@ -107,7 +112,7 @@ namespace LearningGames.Framework
                 "Completed",
                 typeof(ICommand),
                 typeof(StoryboardHelpers),
-                new UIPropertyMetadata());
+                new PropertyMetadata(null));
         #endregion
 
         #region Storyboard Starter Attached Property
@@ -126,7 +131,7 @@ namespace LearningGames.Framework
                 "BeginEvent",
                 typeof(IEvent),
                 typeof(StoryboardHelpers),
-                new UIPropertyMetadata(null, OnBeginEventChanged));
+                new PropertyMetadata(null, OnBeginEventChanged));
 
         static void OnBeginEventChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
@@ -147,7 +152,7 @@ namespace LearningGames.Framework
                 "StoryboardStarter",
                 typeof(StoryboardStarter),
                 typeof(StoryboardHelpers),
-                new FrameworkPropertyMetadata());
+                new PropertyMetadata(null));
         #endregion
     }
 

@@ -10,7 +10,7 @@ using GalaSoft.MvvmLight.Messaging;
 
 namespace LearningGames
 {
-    class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
         private ICommand homeCommand;
         private ICommand settingsCommand;

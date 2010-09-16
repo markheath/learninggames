@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LearningGames.Framework.Quiz;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace LearningGames.Numbers
 {
     public class Addition : TextAnswerProblem
     {
+        private object content;
         public int First { get; private set; }
         public int Second { get; private set; }
 
@@ -15,6 +18,7 @@ namespace LearningGames.Numbers
         {
             this.First = first;
             this.Second = second;
+            this.content = ContentBuilder.CreateTextBlock(this.ToString());
         }
 
         protected override bool IsCorrectAnswer(string answer)
@@ -30,12 +34,24 @@ namespace LearningGames.Numbers
 
         public override object Content
         {
-            get { return ToString(); }
+            get { return content; }
         }
 
         public override string ToString()
         {
             return String.Format("{0} + {1}", First, Second);
+        }
+    }
+
+    public static class ContentBuilder
+    {
+        public static object CreateTextBlock(string text)
+        {
+            TextBlock tb = new TextBlock();
+            tb.Text = text;
+            tb.FontSize = 40;
+            tb.FontWeight = FontWeights.Bold;
+            return tb;
         }
     }
 }

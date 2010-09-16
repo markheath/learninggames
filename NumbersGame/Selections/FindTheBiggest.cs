@@ -23,10 +23,10 @@ namespace LearningGames.Numbers.Selections
             this.labels = new List<object>();
             foreach (var choice in choicesList)
             {
-                var label = new Label();
+                var label = new TextBlock();
                 label.FontSize = 50;
                 label.FontWeight = FontWeights.Bold;
-                label.Content = choice.ToString();
+                label.Text = choice.ToString();
                 labels.Add(label);
             }
         }

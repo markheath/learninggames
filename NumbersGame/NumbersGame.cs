@@ -12,20 +12,20 @@ namespace LearningGames.Numbers
     [Export(typeof(IGame))]
     public class NumbersGame : IGame
     {
-        Page gui;
-        Page settingsGui;
+        UserControl gui;
+        UserControl settingsGui;
 
         public NumbersGame()
         {
 
         }
 
-        public Page Gui
+        public UserControl Gui
         {
             get { if (gui == null) CreateGui(); return gui; }
         }
 
-        public Page SettingsGui
+        public UserControl SettingsGui
         {
             get { if (settingsGui == null) CreateSettingsGui(); return settingsGui; }
         }

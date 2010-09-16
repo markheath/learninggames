@@ -1,11 +1,10 @@
-﻿<Page x:Class="LearningGames.Numbers.NewGame"
+﻿<UserControl x:Class="LearningGames.Numbers.NewGame"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-	Title="NewGame">
+      d:DesignHeight="300" d:DesignWidth="300">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -14,12 +13,12 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         
-        <Label HorizontalAlignment="Center" Margin="5">New Game</Label>
+        <TextBlock HorizontalAlignment="Center" Margin="5">New Game</TextBlock>
         <StackPanel Grid.Row="1" Margin="5">
-            <Label>Choose difficulty level:</Label>
+            <TextBlock Margin="5">Choose difficulty level:</TextBlock>
             <Slider Minimum="{Binding MinLevel}" Maximum="{Binding MaxLevel}" Value="{Binding DifficultyLevel, Mode=TwoWay}" />
-            <Label Content="{Binding DifficultyDescription}" />
+            <TextBlock Margin="5" Text="{Binding DifficultyDescription}" />
         </StackPanel>
         <Button Grid.Row="2" Margin="5" Command="{Binding NewGameCommand}">Begin</Button>
     </Grid>
-</Page>
+</UserControl>

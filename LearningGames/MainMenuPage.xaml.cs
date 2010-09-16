@@ -17,7 +17,7 @@ namespace LearningGames
     /// <summary>
     /// Interaction logic for MainMenuPage.xaml
     /// </summary>
-    public partial class MainMenuPage : System.Windows.Controls.Page
+    public partial class MainMenuPage : UserControl
     {
         public MainMenuPage()
         {
