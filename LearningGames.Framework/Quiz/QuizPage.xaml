@@ -1,25 +1,24 @@
-﻿<Page x:Class="LearningGames.Framework.Quiz.QuizPage"
+﻿<UserControl x:Class="LearningGames.Framework.Quiz.QuizPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:my="clr-namespace:LearningGames.Framework"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="550"
-	Title="QuizPage">
+      d:DesignHeight="300" d:DesignWidth="550">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Label Margin="5" FontSize="40" FontWeight="Bold" 
-               VerticalAlignment="Center">What is...</Label>
-        <Label FontSize="40" FontWeight="Bold" Foreground="Green" 
+        <TextBlock Margin="5" FontSize="40" FontWeight="Bold" 
+               VerticalAlignment="Center">What is...</TextBlock>
+        <TextBlock FontSize="40" FontWeight="Bold" Foreground="Green" 
                Margin="5"
                Grid.Row="0"
                HorizontalAlignment="Right" 
-               Content="{Binding Score}" />
+               Text="{Binding Score}" />
         <ContentPresenter Margin="5" Grid.Row="1" Content="{Binding ProblemPresenter}" />
     </Grid>
-</Page>
+</UserControl>

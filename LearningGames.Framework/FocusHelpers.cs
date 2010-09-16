@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace LearningGames.Framework
 {
@@ -23,7 +24,7 @@ namespace LearningGames.Framework
                 "FocusEvent",
                 typeof(IEvent),
                 typeof(FocusHelpers),
-                new UIPropertyMetadata(null, OnFocusEventChanged));
+                new PropertyMetadata(null, OnFocusEventChanged));
 
         static void OnFocusEventChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
@@ -40,7 +41,7 @@ namespace LearningGames.Framework
                 "FocusSetter",
                 typeof(FocusSetter),
                 typeof(FocusHelpers),
-                new FrameworkPropertyMetadata());
+                new PropertyMetadata(null));
     }
 
     class FocusSetter
@@ -55,7 +56,7 @@ namespace LearningGames.Framework
 
         void eventFirer_Event(object sender, EventArgs e)
         {
-            FrameworkElement frameworkElement = (FrameworkElement)DependencyObject;
+            Control frameworkElement = (Control)DependencyObject;
             frameworkElement.Focus();
         }
     }

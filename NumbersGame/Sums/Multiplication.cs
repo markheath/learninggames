@@ -8,6 +8,7 @@ namespace LearningGames.Numbers
 {
     public class Multiplication : TextAnswerProblem
     {
+        private object content;
         public int First { get; private set; }
         public int Second { get; private set; }
 
@@ -15,6 +16,7 @@ namespace LearningGames.Numbers
         {
             this.First = first;
             this.Second = second;
+            this.content = ContentBuilder.CreateTextBlock(this.ToString());
         }
 
         protected override bool IsCorrectAnswer(string answer)
@@ -30,7 +32,7 @@ namespace LearningGames.Numbers
 
         public override object Content
         {
-            get { return ToString(); }
+            get { return content; }
         }
 
         public override string ToString()

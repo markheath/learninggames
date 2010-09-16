@@ -20,7 +20,7 @@ namespace LearningGames.KeyWords
     /// Interaction logic for KeyWordsPage.xaml
     /// </summary>
     [Export("Game")]
-    public partial class KeyWordsPage : System.Windows.Controls.Page
+    public partial class KeyWordsPage : UserControl
     {
         public KeyWordsPage()
         {

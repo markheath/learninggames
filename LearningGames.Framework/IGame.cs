@@ -8,8 +8,8 @@ namespace LearningGames
 {
     public interface IGame
     {
-        Page Gui { get; }
-        Page SettingsGui { get; }
+        UserControl Gui { get; }
+        UserControl SettingsGui { get; }
         string Name { get; }
     }
 }

@@ -27,7 +27,7 @@ namespace LearningGames.Framework.Quiz
             startWrongAnswer = new EventFirer();
             setTextboxFocus = new EventFirer();
             completedCommand = new RelayCommand(() => OnAnimationCompleted());
-            submitAnswerCommand = new RelayCommand(() => OnSubmitAnswer(), () => !String.IsNullOrEmpty(Answer));
+            submitAnswerCommand = new RelayCommand(() => OnSubmitAnswer(), () => true); // can't do this because of silverlight !String.IsNullOrEmpty(Answer));
         }
 
         public ICommand CompletedCommand { get { return completedCommand; } }
@@ -90,7 +90,9 @@ namespace LearningGames.Framework.Quiz
                 {
                     answer = value;
                     RaisePropertyChanged("Answer");
+#if !SILVERLIGHT
                     CommandManager.InvalidateRequerySuggested();
+#endif
                 }
             }
         }

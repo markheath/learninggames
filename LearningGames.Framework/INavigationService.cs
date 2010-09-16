@@ -11,6 +11,7 @@ namespace LearningGames.Framework
         void NavigateTo(object target);
     }
 
+#if !SILVERLIGHT
     public class NavigationAdapter : INavigationService
     {
         private Frame frame;
@@ -25,4 +26,20 @@ namespace LearningGames.Framework
             frame.Navigate(target);
         }
     }
+#else
+    public class NavigationAdapter : INavigationService
+    {
+        private ContentPresenter frame;
+
+        public NavigationAdapter(ContentPresenter frame)
+        {
+            this.frame = frame;
+        }
+
+        public void NavigateTo(object target)
+        {
+            frame.Content = target;
+        }
+    }
+#endif
 }

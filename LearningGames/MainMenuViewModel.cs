@@ -14,21 +14,37 @@ namespace LearningGames
 {
     public class MainMenuViewModel : ViewModelBase
     {
-        private ICommand gameSelectedCommand;
 
-        public MainMenuViewModel()
+        public MainMenuViewModel(IEnumerable<IGame> games)
         {
-            this.gameSelectedCommand = new RelayCommand<IGame>( 
-                (x) => SelectGame(x) );
-        }
-        
-        [ImportMany(typeof(IGame))]
-        public ObservableCollection<IGame> Games { get; set; }
+            this.Games = new List<GameMenuViewModel>();
+            foreach (var game in games)
+            {
+                this.Games.Add(new GameMenuViewModel(game));
+            }
 
+        }
+
+        public List<GameMenuViewModel> Games { get; private set; }
+    }
+
+    public class GameMenuViewModel : ViewModelBase
+    {
+        private ICommand gameSelectedCommand;
+        public string Name { get { return Game.Name; } }
+        public IGame Game { get; private set; }
+        
         public ICommand GameSelectedCommand { get { return gameSelectedCommand; } }
+        
+        public GameMenuViewModel(IGame game)
+        {
+            this.Game = game;
+            this.gameSelectedCommand = new RelayCommand<IGame>(
+                (x) => SelectGame(x));
+        }
 
         private void SelectGame(IGame game)
-        {            
+        {
             Messenger.Default.Send<GameSelectedMessage>(new GameSelectedMessage() { Game = game });
         }
     }

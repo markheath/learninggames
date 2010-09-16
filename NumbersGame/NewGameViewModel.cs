@@ -12,7 +12,7 @@ using LearningGames.Numbers.Selections;
 
 namespace LearningGames.Numbers
 {
-    class NewGameViewModel : ViewModelBase
+    public class NewGameViewModel : ViewModelBase
     {
         private int difficultyLevel;
 
