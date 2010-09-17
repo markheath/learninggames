@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace LearningGames.Framework.Quiz
 {
@@ -23,6 +24,11 @@ namespace LearningGames.Framework.Quiz
         {
             InitializeComponent();
             this.Loaded += (sender, e) => textBoxAnswer.Focus();
+#if !SILVERLIGHT
+            // not sure why we need to do this in code
+            StoryboardManager.SetID((Storyboard)this.Resources["rightAnswerAnimation"], "rightAnswerAnimation");
+            StoryboardManager.SetID((Storyboard)this.Resources["wrongAnswerAnimation"], "wrongAnswerAnimation");
+#endif
         }
     }
 }

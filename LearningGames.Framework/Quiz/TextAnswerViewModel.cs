@@ -26,7 +26,7 @@ namespace LearningGames.Framework.Quiz
             startCorrectAnswer = new EventFirer();
             startWrongAnswer = new EventFirer();
             setTextboxFocus = new EventFirer();
-            completedCommand = new RelayCommand(() => OnAnimationCompleted());
+            completedCommand = new RelayCommand(() => OnAnimationCompleted(null));
             submitAnswerCommand = new RelayCommand(() => OnSubmitAnswer(), () => true); // can't do this because of silverlight !String.IsNullOrEmpty(Answer));
         }
 
@@ -61,13 +61,13 @@ namespace LearningGames.Framework.Quiz
             }
         }
 
-        void OnAnimationCompleted()
+        void OnAnimationCompleted(object state)
         {
             Answer = "";
             QuestionState = QuestionState.Unanswered;
             setTextboxFocus.Fire(this);
             // might not have changed, but fire here anyway
-            RaisePropertyChanged("Sum");
+            RaisePropertyChanged("Problem");
         }
 
         public object Problem
@@ -102,13 +102,20 @@ namespace LearningGames.Framework.Quiz
             if (problem.SubmitAnswer(Answer))
             {
                 QuestionState = QuestionState.Correct;
+#if SILVERLIGHT
+                StoryboardManager.PlayStoryboard("rightAnswerAnimation", OnAnimationCompleted, null);
+#else
                 startCorrectAnswer.Fire(this);
-                RaisePropertyChanged("Score");
+#endif
             }
             else
             {
                 QuestionState = QuestionState.Incorrect;
+#if SILVERLIGHT
+                StoryboardManager.PlayStoryboard("wrongAnswerAnimation", OnAnimationCompleted, null);
+#else
                 startWrongAnswer.Fire(this);
+#endif
             }
         }
     }

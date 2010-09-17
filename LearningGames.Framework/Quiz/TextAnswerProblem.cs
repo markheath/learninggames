@@ -19,7 +19,10 @@ namespace LearningGames.Framework.Quiz
 
         public override FrameworkElement Presenter
         {
-            get { return presenter; }
+            get 
+            { 
+                return presenter; 
+            }
         }
 
         public override object GetViewModel()
