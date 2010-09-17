@@ -227,9 +227,6 @@ namespace LearningGames.Framework
             Storyboard sb = _storyboards[id];
             EventHandler handler = null;
 
-            if (sb.IsFrozen)
-            { sb = sb.Clone(); }
-
             handler = delegate { sb.Completed -= handler; callback(state); };
             sb.Completed += handler;
             sb.Begin();
