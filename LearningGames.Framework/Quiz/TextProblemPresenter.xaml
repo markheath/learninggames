@@ -7,13 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <Storyboard x:Key="wrongAnswerAnimation">
-            <DoubleAnimation Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.25" />
-            <DoubleAnimation Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:0.75" Duration="0:0:0.25" />
+        <Storyboard x:Key="wrongAnswerAnimation" my:StoryboardManager.ID="wrongAnswerAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity"> 
+                <LinearDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                <LinearDoubleKeyFrame KeyTime="00:00:0.25" Value="1" />
+                <LinearDoubleKeyFrame KeyTime="00:00:0.75" Value="1" />
+                <LinearDoubleKeyFrame KeyTime="00:00:1" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="rightAnswerAnimation">
-            <DoubleAnimation Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.25" />
-            <DoubleAnimation Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:0.75" Duration="0:0:0.25" />
+        <Storyboard x:Key="rightAnswerAnimation" my:StoryboardManager.ID="rightAnswerAnimation">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="labelRight" Storyboard.TargetProperty="Opacity">
+                <LinearDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                <LinearDoubleKeyFrame KeyTime="00:00:0.25" Value="1" />
+                <LinearDoubleKeyFrame KeyTime="00:00:0.75" Value="1" />
+                <LinearDoubleKeyFrame KeyTime="00:00:1" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
     <Grid Background="Azure">
@@ -36,10 +44,11 @@
                  my:FocusHelpers.FocusEvent="{Binding SetTextboxFocus}"
                  Margin="10" FontFamily="Segoe UI" FontSize="40" FontWeight="Bold" BorderBrush="Blue" MaxLength="5"  />
         <Button Content="OK" Grid.Column="1" Grid.Row="1" Margin="10" FontSize="20" Command="{Binding SubmitAnswerCommand}" />
-        <TextBlock FontSize="40" FontWeight="Bold" Foreground="Red" Margin="5" 
+        <TextBlock FontSize="40" FontWeight="Bold" Foreground="Red" Margin="10" 
                Name="labelWrong" Opacity="0" VerticalAlignment="Bottom">oops! try again</TextBlock>
-        <TextBlock FontSize="40" FontWeight="Bold" Foreground="Green" Margin="5" 
+        <TextBlock FontSize="40" FontWeight="Bold" Foreground="Green" Margin="10" 
                Name="labelRight" Opacity="0" VerticalAlignment="Bottom">well done!</TextBlock>
+        
         <UserControl
             my:StoryboardHelpers.StoryboardName="rightAnswerAnimation"
             my:StoryboardHelpers.Completed="{Binding CompletedCommand}"

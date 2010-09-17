@@ -194,4 +194,56 @@ namespace LearningGames.Framework
             }
         }
     }
+
+    /// <summary>
+    /// adapted from
+    /// http://chris.59north.com/post/mvvm-and-animations.aspx
+    /// </summary>
+    public static class StoryboardManager
+    {
+        public static DependencyProperty IDProperty =
+            DependencyProperty.RegisterAttached("ID", typeof(string), typeof(StoryboardManager),
+            new PropertyMetadata(null, IDChanged));
+        static Dictionary<string, Storyboard> _storyboards = new Dictionary<string, Storyboard>();
+
+        private static void IDChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            Storyboard sb = obj as Storyboard;
+            if (sb == null)
+                return;
+
+            string key = e.NewValue as string;
+
+            _storyboards[key] = sb;
+        }
+
+        public static void PlayStoryboard(string id, Callback callback, object state)
+        {
+            if (!_storyboards.ContainsKey(id))
+            {
+                callback(state);
+                return;
+            }
+            Storyboard sb = _storyboards[id];
+            EventHandler handler = null;
+
+            if (sb.IsFrozen)
+            { sb = sb.Clone(); }
+
+            handler = delegate { sb.Completed -= handler; callback(state); };
+            sb.Completed += handler;
+            sb.Begin();
+        }
+
+        public static void SetID(DependencyObject obj, string id)
+        {
+            obj.SetValue(IDProperty, id);
+        }
+        public static string GetID(DependencyObject obj)
+        {
+            return obj.GetValue(IDProperty) as string;
+        }
+    }
+    public delegate void Callback(object state);
+
 }
