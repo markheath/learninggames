@@ -58,61 +58,110 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Quiz\Difficulty.cs" />
-    <Compile Include="FocusHelpers.cs" />
-    <Compile Include="IEvent.cs" />
-    <Compile Include="IGame.cs" />
-    <Compile Include="INavigationService.cs" />
-    <Compile Include="Quiz\IProblemGenerator.cs" />
-    <Compile Include="Quiz\IProblemProvider.cs" />
-    <Compile Include="Quiz\IQuiz.cs" />
-    <Compile Include="ListUtils.cs" />
-    <Compile Include="NavigateMessage.cs" />
-    <Compile Include="Quiz\MultiChoiceProblem.cs" />
-    <Compile Include="Quiz\MultiChoiceProblemPresenter.xaml.cs">
+    <Compile Include="..\LearningGames.Framework\Quiz\Difficulty.cs">
+      <Link>Quiz\Difficulty.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\FocusHelpers.cs">
+      <Link>FocusHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\IEvent.cs">
+      <Link>IEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\IGame.cs">
+      <Link>IGame.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\INavigationService.cs">
+      <Link>INavigationService.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\IProblemGenerator.cs">
+      <Link>Quiz\IProblemGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\IProblemProvider.cs">
+      <Link>Quiz\IProblemProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\IQuiz.cs">
+      <Link>Quiz\IQuiz.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\ListUtils.cs">
+      <Link>ListUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\NavigateMessage.cs">
+      <Link>NavigateMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\MultiChoiceProblem.cs">
+      <Link>Quiz\MultiChoiceProblem.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\MultiChoiceProblemPresenter.xaml.cs">
+      <Link>Quiz\MultiChoiceProblemPresenter.xaml.cs</Link>
       <SubType>Code</SubType>
       <DependentUpon>MultiChoiceProblemPresenter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Quiz\MultiChoiceViewModel.cs" />
-    <Compile Include="Quiz\Problem.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
+    <Compile Include="..\LearningGames.Framework\Quiz\MultiChoiceViewModel.cs">
+      <Link>Quiz\MultiChoiceViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\Problem.cs">
+      <Link>Quiz\Problem.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="..\LearningGames.Framework\Properties\Resources.Designer.cs">
+      <Link>Properties\Resources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Quiz\QuestionState.cs" />
-    <Compile Include="Quiz\QuizBase.cs" />
-    <Compile Include="Quiz\QuizPage.xaml.cs">
+    <Compile Include="..\LearningGames.Framework\Quiz\QuestionState.cs">
+      <Link>Quiz\QuestionState.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\QuizBase.cs">
+      <Link>Quiz\QuizBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\QuizPage.xaml.cs">
+      <Link>Quiz\QuizPage.xaml.cs</Link>
       <DependentUpon>QuizPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Quiz\QuizViewModel.cs" />
-    <Compile Include="Quiz\ProblemProvider.cs" />
-    <Compile Include="Quiz\TextAnswerViewModel.cs" />
-    <Compile Include="Quiz\TextProblemPresenter.xaml.cs">
+    <Compile Include="..\LearningGames.Framework\Quiz\QuizViewModel.cs">
+      <Link>Quiz\QuizViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\ProblemProvider.cs">
+      <Link>Quiz\ProblemProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\TextAnswerViewModel.cs">
+      <Link>Quiz\TextAnswerViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\TextProblemPresenter.xaml.cs">
+      <Link>Quiz\TextProblemPresenter.xaml.cs</Link>
       <SubType>Code</SubType>
       <DependentUpon>TextProblemPresenter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StoryboardHelpers.cs" />
-    <Compile Include="Quiz\TextAnswerProblem.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <Compile Include="..\LearningGames.Framework\StoryboardHelpers.cs">
+      <Link>StoryboardHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames.Framework\Quiz\TextAnswerProblem.cs">
+      <Link>Quiz\TextAnswerProblem.cs</Link>
+    </Compile>
+    <EmbeddedResource Include="..\LearningGames.Framework\Properties\Resources.resx">
+      <Link>Properties\Resources.resx</Link>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Quiz\MultiChoiceProblemPresenter.xaml">
+    <Page Include="..\LearningGames.Framework\Quiz\MultiChoiceProblemPresenter.xaml">
+      <Link>Quiz\MultiChoiceProblemPresenter.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Quiz\QuizPage.xaml">
+    <Page Include="..\LearningGames.Framework\Quiz\QuizPage.xaml">
+      <Link>Quiz\QuizPage.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Quiz\TextProblemPresenter.xaml">
+    <Page Include="..\LearningGames.Framework\Quiz\TextProblemPresenter.xaml">
+      <Link>Quiz\TextProblemPresenter.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

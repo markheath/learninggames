@@ -49,9 +49,6 @@
     <Reference Include="GalaSoft.MvvmLight.SL4">
       <HintPath>..\Dependencies\MVVM Light\GalaSoft.MvvmLight.SL4.dll</HintPath>
     </Reference>
-    <Reference Include="LearningGames.Framework.Silverlight">
-      <HintPath>..\LearningGames.Framework\Bin\DebugSL\LearningGames.Framework.Silverlight.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows" />
@@ -67,7 +64,7 @@
       <DependentUpon>NewGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\NumbersGame\NewGameViewModel.cs">
-        <Link>NewGameViewModel.cs</Link>
+      <Link>NewGameViewModel.cs</Link>
     </Compile>
     <Compile Include="..\NumbersGame\ResultsPage.xaml.cs">
       <Link>ResultsPage.xaml.cs</Link>
@@ -144,6 +141,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LearningGames.Framework.Silverlight\LearningGames.Framework.csproj">
+      <Project>{F4964EB2-2638-4B6F-A174-97C1D5D5E7A2}</Project>
+      <Name>LearningGames.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

@@ -61,29 +61,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\KeyWordsGame\IKeyWordsProvider.cs">
-        <Link>IKeyWordsProvider.cs</Link>
+      <Link>IKeyWordsProvider.cs</Link>
     </Compile>
     <Compile Include="..\KeyWordsGame\ISpeechService.cs">
-        <Link>ISpeechService.cs</Link>
+      <Link>ISpeechService.cs</Link>
     </Compile>
     <Compile Include="..\KeyWordsGame\KeyWordProblem.cs">
-        <Link>KeyWordProblem.cs</Link>
+      <Link>KeyWordProblem.cs</Link>
     </Compile>
     <Compile Include="..\KeyWordsGame\KeyWordsGame.cs">
-        <Link>KeyWordsGame.cs</Link>
+      <Link>KeyWordsGame.cs</Link>
     </Compile>
     <Compile Include="..\KeyWordsGame\KeyWordsPage.xaml.cs">
-        <Link>KeyWordsPage.xaml.cs</Link>
+      <Link>KeyWordsPage.xaml.cs</Link>
       <DependentUpon>KeyWordsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="..\KeyWordsGame\KeyWordsStats.cs">
-        <Link>KeyWordsStats.cs</Link>
+      <Link>KeyWordsStats.cs</Link>
     </Compile>
     <Compile Include="..\KeyWordsGame\KeyWordsViewModel.cs">
-        <Link>KeyWordsViewModel.cs</Link>
+      <Link>KeyWordsViewModel.cs</Link>
     </Compile>
     <Compile Include="..\KeyWordsGame\KeyWordXmlProvider.cs">
-        <Link>KeyWordXmlProvider.cs</Link>
+      <Link>KeyWordXmlProvider.cs</Link>
     </Compile>
     <Compile Include="..\KeyWordsGame\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -132,9 +132,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LearningGames.Framework\LearningGames.Framework.Silverlight.csproj">
+    <ProjectReference Include="..\LearningGames.Framework.Silverlight\LearningGames.Framework.csproj">
       <Project>{F4964EB2-2638-4B6F-A174-97C1D5D5E7A2}</Project>
-      <Name>LearningGames.Framework.Silverlight</Name>
+      <Name>LearningGames.Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

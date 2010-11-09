@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGamesSL.Web", "LearningGamesSL.Web\LearningGamesSL.Web.csproj", "{C2027989-D8AF-46FB-87D0-7E736FFE9AF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames.Web", "LearningGamesSL.Web\LearningGames.Web.csproj", "{C2027989-D8AF-46FB-87D0-7E736FFE9AF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames.Framework.Silverlight", "LearningGames.Framework\LearningGames.Framework.Silverlight.csproj", "{F4964EB2-2638-4B6F-A174-97C1D5D5E7A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames.Framework", "LearningGames.Framework.Silverlight\LearningGames.Framework.csproj", "{F4964EB2-2638-4B6F-A174-97C1D5D5E7A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeywordsGame.Silverlight", "KeyWordsGame.Silverlight\KeywordsGame.csproj", "{0CFAC46A-EC62-4E72-96EF-E221C7B3B32C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeywordsGame", "KeyWordsGame.Silverlight\KeywordsGame.csproj", "{0CFAC46A-EC62-4E72-96EF-E221C7B3B32C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersGame.Silverlight", "NumbersGame.Silverlight\NumbersGame.csproj", "{FC905207-72B6-4F0D-B454-CEC016E6E2C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersGame", "NumbersGame.Silverlight\NumbersGame.csproj", "{FC905207-72B6-4F0D-B454-CEC016E6E2C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames.Silverlight", "LearningGames.Silverlight\LearningGames.csproj", "{CA0AD1C5-1003-42A4-9453-E8CF17882B35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames", "LearningGames.Silverlight\LearningGames.csproj", "{CA0AD1C5-1003-42A4-9453-E8CF17882B35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

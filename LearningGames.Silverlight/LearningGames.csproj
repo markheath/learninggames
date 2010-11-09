@@ -135,15 +135,15 @@
   <ItemGroup>
     <ProjectReference Include="..\KeyWordsGame.Silverlight\KeywordsGame.csproj">
       <Project>{0CFAC46A-EC62-4E72-96EF-E221C7B3B32C}</Project>
-      <Name>KeywordsGame.Silverlight</Name>
+      <Name>KeywordsGame</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LearningGames.Framework\LearningGames.Framework.Silverlight.csproj">
+    <ProjectReference Include="..\LearningGames.Framework.Silverlight\LearningGames.Framework.csproj">
       <Project>{F4964EB2-2638-4B6F-A174-97C1D5D5E7A2}</Project>
-      <Name>LearningGames.Framework.Silverlight</Name>
+      <Name>LearningGames.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\NumbersGame.Silverlight\NumbersGame.csproj">
       <Project>{FC905207-72B6-4F0D-B454-CEC016E6E2C5}</Project>
-      <Name>NumbersGame.Silverlight</Name>
+      <Name>NumbersGame</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
