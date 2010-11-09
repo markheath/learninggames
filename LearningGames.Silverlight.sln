@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames.Web", "LearningGamesSL.Web\LearningGames.Web.csproj", "{C2027989-D8AF-46FB-87D0-7E736FFE9AF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames.Web", "LearningGames.Web\LearningGames.Web.csproj", "{C2027989-D8AF-46FB-87D0-7E736FFE9AF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningGames.Framework", "LearningGames.Framework.Silverlight\LearningGames.Framework.csproj", "{F4964EB2-2638-4B6F-A174-97C1D5D5E7A2}"
 EndProject
