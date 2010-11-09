@@ -3,7 +3,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     MinHeight="300" MinWidth="300">
     <UserControl.Resources>
-
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                        <GradientStop Color="#FFFFD190" Offset="0.2"/>
+                        <GradientStop Color="Orange" Offset="0.85"/>
+                        <GradientStop Color="#FFFFD190" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     <ItemsControl ItemsSource="{Binding Games}">
         <ItemsControl.ItemTemplate>

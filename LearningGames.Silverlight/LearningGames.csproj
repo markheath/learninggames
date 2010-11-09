@@ -83,7 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindowSilverlight.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -107,8 +107,8 @@
     <Compile Include="..\LearningGames\NavigationManager.cs">
       <Link>NavigationManager.cs</Link>
     </Compile>
-    <Compile Include="MainWindowSilverlight.xaml.cs">
-      <DependentUpon>MainWindowSilverlight.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

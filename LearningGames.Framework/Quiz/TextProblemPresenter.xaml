@@ -3,7 +3,8 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:my="clr-namespace:LearningGames.Framework"
+            xmlns:my="clr-namespace:LearningGames.Framework"
+            xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -42,8 +43,19 @@
                  Text="{Binding Answer, Mode=TwoWay}" 
                  IsEnabled="{Binding AllowAnswer}"
                  my:FocusHelpers.FocusEvent="{Binding SetTextboxFocus}"
-                 Margin="10" FontFamily="Segoe UI" FontSize="40" FontWeight="Bold" BorderBrush="Blue" MaxLength="5"  />
-        <Button Content="OK" Grid.Column="1" Grid.Row="1" Margin="10" FontSize="20" Command="{Binding SubmitAnswerCommand}" />
+                 Margin="10" 
+                 FontFamily="Segoe UI" 
+                 FontSize="40" 
+                 FontWeight="Bold" 
+                 BorderBrush="Blue" 
+                 MaxLength="5" >
+            <interaction:Interaction.Triggers>
+                <interaction:EventTrigger EventName="KeyDown" >
+                    <my:TextBoxEnterButtonInvoke TargetName="okButton" />
+                </interaction:EventTrigger>
+            </interaction:Interaction.Triggers>
+        </TextBox>
+        <Button x:Name="okButton" Content="OK" Grid.Column="1" Grid.Row="1" Margin="10" FontSize="20" Command="{Binding SubmitAnswerCommand}" />
         <TextBlock FontSize="40" FontWeight="Bold" Foreground="Red" Margin="10" 
                Name="labelWrong" Opacity="0" VerticalAlignment="Bottom">oops! try again</TextBlock>
         <TextBlock FontSize="40" FontWeight="Bold" Foreground="Green" Margin="10" 
