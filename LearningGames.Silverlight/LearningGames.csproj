@@ -133,7 +133,7 @@
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KeyWordsGame\KeywordsGame.Silverlight.csproj">
+    <ProjectReference Include="..\KeyWordsGame.Silverlight\KeywordsGame.csproj">
       <Project>{0CFAC46A-EC62-4E72-96EF-E221C7B3B32C}</Project>
       <Name>KeywordsGame.Silverlight</Name>
     </ProjectReference>
