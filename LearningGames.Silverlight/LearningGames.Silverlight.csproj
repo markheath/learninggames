@@ -73,53 +73,61 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="..\LearningGames\App.xaml">
+      <Link>App.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\LearningGames\MainMenuPage.xaml">
+      <Link>MainMenuPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindowSilverlight.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainMenuPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="..\LearningGames\App.xaml.cs">
+      <Link>App.xaml.cs</Link>
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\LearningGames\GameSelectedMessage.cs">
+      <Link>GameSelectedMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames\MainMenuPage.xaml.cs">
+      <Link>MainMenuPage.xaml.cs</Link>
+      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\LearningGames\MainMenuViewModel.cs">
+      <Link>MainMenuViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames\MainWindowViewModel.cs">
+      <Link>MainWindowViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\LearningGames\NavigationManager.cs">
+      <Link>NavigationManager.cs</Link>
+    </Compile>
     <Compile Include="MainWindowSilverlight.xaml.cs">
       <DependentUpon>MainWindowSilverlight.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="..\LearningGames\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="GameSelectedMessage.cs" />
-    <Compile Include="MainMenuViewModel.cs" />
-    <Compile Include="MainMenuPage.xaml.cs">
-      <DependentUpon>MainMenuPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="NavigationManager.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="..\LearningGames\Properties\Resources.Designer.cs">
+      <Link>Properties\Resources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="..\LearningGames\Properties\Resources.resx">
+      <Link>Properties\Resources.resx</Link>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
@@ -133,7 +141,7 @@
       <Project>{F4964EB2-2638-4B6F-A174-97C1D5D5E7A2}</Project>
       <Name>LearningGames.Framework.Silverlight</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NumbersGame\NumbersGame.Silverlight.csproj">
+    <ProjectReference Include="..\NumbersGame.Silverlight\NumbersGame.csproj">
       <Project>{FC905207-72B6-4F0D-B454-CEC016E6E2C5}</Project>
       <Name>NumbersGame.Silverlight</Name>
     </ProjectReference>

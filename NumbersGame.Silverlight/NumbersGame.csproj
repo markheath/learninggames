@@ -62,52 +62,85 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewGame.xaml.cs">
+    <Compile Include="..\NumbersGame\NewGame.xaml.cs">
+      <Link>NewGame.xaml.cs</Link>
       <DependentUpon>NewGame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewGameViewModel.cs" />
-    <Compile Include="ResultsPage.xaml.cs">
+    <Compile Include="..\NumbersGame\NewGameViewModel.cs">
+        <Link>NewGameViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\ResultsPage.xaml.cs">
+      <Link>ResultsPage.xaml.cs</Link>
       <DependentUpon>ResultsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ResultsViewModel.cs" />
-    <Compile Include="Selections\FindTheBiggest.cs" />
-    <Compile Include="Selections\FindTheBiggestProblemGenerator.cs" />
-    <Compile Include="SettingsPage.xaml.cs">
+    <Compile Include="..\NumbersGame\ResultsViewModel.cs">
+      <Link>ResultsViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\Selections\FindTheBiggest.cs">
+      <Link>Selections\FindTheBiggest.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\Selections\FindTheBiggestProblemGenerator.cs">
+      <Link>Selections\FindTheBiggestProblemGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\SettingsPage.xaml.cs">
+      <Link>SettingsPage.xaml.cs</Link>
       <SubType>Code</SubType>
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sums\Addition.cs" />
-    <Compile Include="Sums\AdditionProblemGenerator.cs" />
-    <Compile Include="Sums\Division.cs" />
-    <Compile Include="Sums\Multiplication.cs" />
-    <Compile Include="NumbersGame.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
+    <Compile Include="..\NumbersGame\Sums\Addition.cs">
+      <Link>Sums\Addition.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\Sums\AdditionProblemGenerator.cs">
+      <Link>Sums\AdditionProblemGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\Sums\Division.cs">
+      <Link>Sums\Division.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\Sums\Multiplication.cs">
+      <Link>Sums\Multiplication.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\NumbersGame.cs">
+      <Link>NumbersGame.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="..\NumbersGame\Properties\Resources.Designer.cs">
+      <Link>Properties\Resources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Sums\MultiplicationProblemGenerator.cs" />
-    <Compile Include="Sums\Subtraction.cs" />
-    <Compile Include="Sums\SubtractionSumType.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <Compile Include="..\NumbersGame\Sums\MultiplicationProblemGenerator.cs">
+      <Link>Sums\MultiplicationProblemGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\Sums\Subtraction.cs">
+      <Link>Sums\Subtraction.cs</Link>
+    </Compile>
+    <Compile Include="..\NumbersGame\Sums\SubtractionSumType.cs">
+      <Link>Sums\SubtractionSumType.cs</Link>
+    </Compile>
+    <EmbeddedResource Include="..\NumbersGame\Properties\Resources.resx">
+      <Link>Properties\Resources.resx</Link>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="NewGame.xaml">
+    <Page Include="..\NumbersGame\NewGame.xaml">
+      <Link>NewGame.xaml</Link>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ResultsPage.xaml">
+    <Page Include="..\NumbersGame\ResultsPage.xaml">
+      <Link>ResultsPage.xaml</Link>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SettingsPage.xaml">
+    <Page Include="..\NumbersGame\SettingsPage.xaml">
+      <Link>SettingsPage.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -13,7 +13,8 @@
     <RootNamespace>LearningGamesSL.Web</RootNamespace>
     <AssemblyName>LearningGamesSL.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <SilverlightApplicationList>{CA0AD1C5-1003-42A4-9453-E8CF17882B35}|..\LearningGames\LearningGames.Silverlight.csproj|ClientBin|False</SilverlightApplicationList>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
