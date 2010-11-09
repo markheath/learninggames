@@ -59,6 +59,9 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\LearningGames.Framework\EnterKeyHelpers.cs">
+      <Link>EnterKeyHelpers.cs</Link>
+    </Compile>
     <Compile Include="..\LearningGames.Framework\Quiz\Difficulty.cs">
       <Link>Quiz\Difficulty.cs</Link>
     </Compile>
@@ -142,9 +145,6 @@
     </Compile>
     <Compile Include="..\LearningGames.Framework\Quiz\TextAnswerProblem.cs">
       <Link>Quiz\TextAnswerProblem.cs</Link>
-    </Compile>
-    <Compile Include="..\LearningGames.Framework\TextBoxEnterButtonInvoke.cs">
-      <Link>TextBoxEnterButtonInvoke.cs</Link>
     </Compile>
     <EmbeddedResource Include="..\LearningGames.Framework\Properties\Resources.resx">
       <Link>Properties\Resources.resx</Link>

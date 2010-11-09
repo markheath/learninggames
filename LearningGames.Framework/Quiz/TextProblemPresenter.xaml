@@ -43,17 +43,13 @@
                  Text="{Binding Answer, Mode=TwoWay}" 
                  IsEnabled="{Binding AllowAnswer}"
                  my:FocusHelpers.FocusEvent="{Binding SetTextboxFocus}"
+                 my:EnterKeyHelpers.EnterKeyCommand="{Binding SubmitAnswerCommand}"
                  Margin="10" 
                  FontFamily="Segoe UI" 
                  FontSize="40" 
                  FontWeight="Bold" 
                  BorderBrush="Blue" 
                  MaxLength="5" >
-            <interaction:Interaction.Triggers>
-                <interaction:EventTrigger EventName="KeyDown" >
-                    <my:TextBoxEnterButtonInvoke TargetName="okButton" />
-                </interaction:EventTrigger>
-            </interaction:Interaction.Triggers>
         </TextBox>
         <Button x:Name="okButton" Content="OK" Grid.Column="1" Grid.Row="1" Margin="10" FontSize="20" Command="{Binding SubmitAnswerCommand}" />
         <TextBlock FontSize="40" FontWeight="Bold" Foreground="Red" Margin="10" 

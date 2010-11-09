@@ -119,7 +119,7 @@
     <Compile Include="Quiz\TextProblemPresenter.xaml.cs">
       <DependentUpon>TextProblemPresenter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TextBoxEnterButtonInvoke.cs" />
+    <Compile Include="EnterKeyHelpers.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
