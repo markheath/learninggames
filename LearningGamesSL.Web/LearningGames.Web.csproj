@@ -10,11 +10,10 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LearningGamesSL.Web</RootNamespace>
-    <AssemblyName>LearningGamesSL.Web</AssemblyName>
+    <RootNamespace>LearningGames.Web</RootNamespace>
+    <AssemblyName>LearningGames.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <SilverlightApplicationList>
-    </SilverlightApplicationList>
+    <SilverlightApplicationList>{CA0AD1C5-1003-42A4-9453-E8CF17882B35}|..\LearningGames.Silverlight\LearningGames.csproj|ClientBin|False</SilverlightApplicationList>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,8 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\LearningGamesSL.xap" />
-    <Content Include="LearningGames.SilverlightTestPage.aspx" />
-    <Content Include="LearningGames.SilverlightTestPage.html" />
+    <Content Include="LearningGamesTestPage.aspx" />
+    <Content Include="LearningGamesTestPage.html" />
     <Content Include="Silverlight.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
