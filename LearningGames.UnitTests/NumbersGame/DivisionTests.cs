@@ -32,13 +32,6 @@ namespace LearningGames.UnitTests.NumbersGame
         }
 
         [Test]
-        public void CanProvideContent()
-        {
-            Division division = new Division(2, 1);
-            Assert.IsNotNull(division.Content);
-        }
-
-        [Test]
         public void DescribesDivideByTwoAsHalf()
         {
             Division division = new Division(4, 2);

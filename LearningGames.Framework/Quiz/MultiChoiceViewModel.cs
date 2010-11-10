@@ -31,7 +31,7 @@ namespace LearningGames.Framework.Quiz
 
         public object Problem
         {
-            get { return problem.Content; }
+            get { return problem; }
         }
 
         private Button CreateChoiceButton(object choice)

@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="Addition">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="40" FontWeight="Bold" Text="{Binding First}"/>
+            <TextBlock FontSize="40" FontWeight="Bold" Text=" + "/>
+            <TextBlock FontSize="40" FontWeight="Bold" Text="{Binding Second}"/>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="Subtraction">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="40" FontWeight="Bold" Text="{Binding First}"/>
+            <TextBlock FontSize="40" FontWeight="Bold" Text=" - "/>
+            <TextBlock FontSize="40" FontWeight="Bold" Text="{Binding Second}"/>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="Multiplication">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="40" FontWeight="Bold" Text="{Binding First}"/>
+            <TextBlock FontSize="40" FontWeight="Bold" Text=" × "/>
+            <TextBlock FontSize="40" FontWeight="Bold" Text="{Binding Second}"/>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="Division">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="40" FontWeight="Bold" Text="{Binding First}"/>
+            <TextBlock FontSize="40" FontWeight="Bold" Text=" ÷ "/>
+            <TextBlock FontSize="40" FontWeight="Bold" Text="{Binding Second}"/>
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="FindTheBiggest">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="40" FontWeight="Bold" Text="Find the Biggest"/>
+        </StackPanel>
+    </DataTemplate>
+</ResourceDictionary>
