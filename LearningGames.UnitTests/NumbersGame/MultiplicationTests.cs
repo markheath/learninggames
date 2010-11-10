@@ -30,12 +30,5 @@ namespace LearningGames.UnitTests.NumbersGame
             Multiplication multiplication = new Multiplication(first, second);
             Assert.IsFalse(multiplication.SubmitAnswer(answer));
         }
-
-        [Test]
-        public void CanProvideContent()
-        {
-            Multiplication multiplication = new Multiplication(1, 2);
-            Assert.IsNotNull(multiplication.Content);
-        }
     }
 }

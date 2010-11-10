@@ -36,7 +36,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border Grid.ColumnSpan="2" Margin="5" BorderBrush="Blue" BorderThickness="2" CornerRadius="4">
-            <ContentPresenter Content="{Binding Problem}" />
+            <ContentPresenter Content="{Binding Problem}" ContentTemplate="{Binding DataTemplate}" />
         </Border>
         <!-- GRRR - Can't use updateSourceTrigger=PropertyChanged in SL. Was Text="{Binding Answer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" -->
         <TextBox Grid.Row="1" 

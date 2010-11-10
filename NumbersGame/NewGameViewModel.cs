@@ -8,7 +8,6 @@ using GalaSoft.MvvmLight.Command;
 using LearningGames.Framework.Quiz;
 using GalaSoft.MvvmLight.Messaging;
 using LearningGames.Framework;
-using LearningGames.Numbers.Selections;
 
 namespace LearningGames.Numbers
 {

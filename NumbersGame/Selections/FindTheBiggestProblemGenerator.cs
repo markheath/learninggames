@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using LearningGames.Framework.Quiz;
 
-namespace LearningGames.Numbers.Selections
+namespace LearningGames.Numbers
 {
     class FindTheBiggestProblemGenerator : IProblemGenerator
     {   

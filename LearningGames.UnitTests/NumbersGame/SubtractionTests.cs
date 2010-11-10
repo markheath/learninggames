@@ -33,12 +33,5 @@ namespace LearningGames.UnitTests.NumbersGame
             Subtraction subtraction = new Subtraction(first, second);
             Assert.IsFalse(subtraction.SubmitAnswer(answer));
         }
-
-        [Test]
-        public void CanProvideContent()
-        {
-            Subtraction subtraction = new Subtraction(1, 2);
-            Assert.IsNotNull(subtraction.Content);
-        }
     }
 }

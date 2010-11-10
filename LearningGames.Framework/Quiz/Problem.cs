@@ -8,11 +8,19 @@ namespace LearningGames.Framework.Quiz
 {
     public abstract class Problem
     {
-        public abstract object Content { get; }
         public abstract FrameworkElement Presenter { get; }
         public event EventHandler Answered;
         public bool IsCorrect { get; private set; }
         public int Attempts { get; private set; }
+
+        public DataTemplate DataTemplate
+        { 
+            get 
+            { 
+                string resourceName = this.GetType().Name;
+                return (DataTemplate) Application.Current.Resources[resourceName];
+            }
+        }
 
         public void RaiseAnswerEvent(bool isCorrect)
         {
