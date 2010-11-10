@@ -33,12 +33,5 @@ namespace LearningGames.UnitTests.NumbersGame
             Addition addition = new Addition(first, second);
             Assert.IsFalse(addition.SubmitAnswer(answer));
         }
-
-        [Test]
-        public void CanProvideContent()
-        {
-            Addition addition = new Addition(1, 2);
-            Assert.IsNotNull(addition.Content);
-        }
     }
 }
