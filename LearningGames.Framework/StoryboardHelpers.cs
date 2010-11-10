@@ -202,19 +202,36 @@ namespace LearningGames.Framework
     public static class StoryboardManager
     {
         public static DependencyProperty IDProperty =
-            DependencyProperty.RegisterAttached("ID", typeof(string), typeof(StoryboardManager),
-            new PropertyMetadata(null, IDChanged));
-        static Dictionary<string, Storyboard> _storyboards = new Dictionary<string, Storyboard>();
+            DependencyProperty.RegisterAttached(
+                "ID", 
+                typeof(string), 
+                typeof(StoryboardManager),
+                new PropertyMetadata(null, OnIDChanged));
 
-        private static void IDChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        class StoryboardInfo
+        {
+            public Storyboard Storyboard { get; set; }
+            public Action Callback { get; set; }
+        }
+
+        static Dictionary<string, StoryboardInfo> _storyboards = new Dictionary<string, StoryboardInfo>();
+
+        static void OnIDChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
             Storyboard sb = obj as Storyboard;
             if (sb == null)
                 return;
-
+            
             string key = e.NewValue as string;
+            if (_storyboards.ContainsKey(key))
+            {
+                // very strange, WPF currently making another instance of the storyboard here
+                // but we've already started a different instance, so ignore
+                return;                    
+            }
 
-            _storyboards[key] = sb;
+            sb.Completed += delegate(object sender, EventArgs args) { _storyboards[key].Callback(); };
+            _storyboards[key] = new StoryboardInfo() { Storyboard = sb, Callback = null };
         }
 
         public static void PlayStoryboard(string id, Callback callback, object state)
@@ -224,21 +241,19 @@ namespace LearningGames.Framework
                 callback(state);
                 return;
             }
-            Storyboard sb = _storyboards[id];
-            EventHandler handler = null;
-
-            handler = delegate { sb.Completed -= handler; callback(state); };
-            sb.Completed += handler;
-            sb.Begin();
+            var sb = _storyboards[id];
+            sb.Callback = () => callback(state);
+            sb.Storyboard.Begin();
         }
 
-        public static void SetID(DependencyObject obj, string id)
+        public static void SetID(DependencyObject target, string id)
         {
-            obj.SetValue(IDProperty, id);
+            target.SetValue(IDProperty, id);
         }
-        public static string GetID(DependencyObject obj)
+
+        public static string GetID(DependencyObject target)
         {
-            return obj.GetValue(IDProperty) as string;
+            return target.GetValue(IDProperty) as string;
         }
     }
     public delegate void Callback(object state);

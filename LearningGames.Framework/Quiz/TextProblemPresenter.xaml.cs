@@ -25,7 +25,7 @@ namespace LearningGames.Framework.Quiz
             InitializeComponent();
             this.Loaded += (sender, e) => textBoxAnswer.Focus();
 #if !SILVERLIGHT
-            // not sure why we need to do this in code
+            // WPF doesn't seem to create things in the UserControl.Resources section up front            
             StoryboardManager.SetID((Storyboard)this.Resources["rightAnswerAnimation"], "rightAnswerAnimation");
             StoryboardManager.SetID((Storyboard)this.Resources["wrongAnswerAnimation"], "wrongAnswerAnimation");
 #endif

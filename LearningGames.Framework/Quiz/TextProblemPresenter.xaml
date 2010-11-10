@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <Storyboard x:Key="wrongAnswerAnimation" my:StoryboardManager.ID="wrongAnswerAnimation">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity"> 
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="labelWrong" Storyboard.TargetProperty="Opacity">
                 <LinearDoubleKeyFrame KeyTime="00:00:00" Value="0" />
                 <LinearDoubleKeyFrame KeyTime="00:00:0.25" Value="1" />
                 <LinearDoubleKeyFrame KeyTime="00:00:0.75" Value="1" />
@@ -26,6 +26,7 @@
         </Storyboard>
     </UserControl.Resources>
     <Grid Background="Azure">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220*" />
             <ColumnDefinition Width="80*" />
@@ -56,7 +57,7 @@
                Name="labelWrong" Opacity="0" VerticalAlignment="Bottom">oops! try again</TextBlock>
         <TextBlock FontSize="40" FontWeight="Bold" Foreground="Green" Margin="10" 
                Name="labelRight" Opacity="0" VerticalAlignment="Bottom">well done!</TextBlock>
-        
+        <!--
         <UserControl
             my:StoryboardHelpers.StoryboardName="rightAnswerAnimation"
             my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
@@ -64,6 +65,6 @@
         <UserControl
             my:StoryboardHelpers.StoryboardName="wrongAnswerAnimation"
             my:StoryboardHelpers.Completed="{Binding CompletedCommand}"
-            my:StoryboardHelpers.BeginEvent="{Binding StartWrongAnswer}" />
+            my:StoryboardHelpers.BeginEvent="{Binding StartWrongAnswer}" /> -->
     </Grid>
 </UserControl>

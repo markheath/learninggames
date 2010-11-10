@@ -16,15 +16,11 @@ namespace LearningGames.Framework.Quiz
 
         private ICommand completedCommand;
         private ICommand submitAnswerCommand;
-        private EventFirer startCorrectAnswer;
-        private EventFirer startWrongAnswer;
         private EventFirer setTextboxFocus;
 
         public TextAnswerViewModel(TextAnswerProblem problem)
         {
             this.problem = problem;
-            startCorrectAnswer = new EventFirer();
-            startWrongAnswer = new EventFirer();
             setTextboxFocus = new EventFirer();
             completedCommand = new RelayCommand(() => OnAnimationCompleted(null));
             submitAnswerCommand = new RelayCommand(() => OnSubmitAnswer(), () => true); // can't do this because of silverlight !String.IsNullOrEmpty(Answer));
@@ -32,8 +28,6 @@ namespace LearningGames.Framework.Quiz
 
         public ICommand CompletedCommand { get { return completedCommand; } }
         public ICommand SubmitAnswerCommand { get { return submitAnswerCommand; } }
-        public IEvent StartCorrectAnswer { get { return startCorrectAnswer; } }
-        public IEvent StartWrongAnswer { get { return startWrongAnswer; } }
         public IEvent SetTextboxFocus { get { return setTextboxFocus; } }
 
         public QuestionState QuestionState
@@ -102,20 +96,12 @@ namespace LearningGames.Framework.Quiz
             if (problem.SubmitAnswer(Answer))
             {
                 QuestionState = QuestionState.Correct;
-#if SILVERLIGHT
                 StoryboardManager.PlayStoryboard("rightAnswerAnimation", OnAnimationCompleted, null);
-#else
-                startCorrectAnswer.Fire(this);
-#endif
             }
             else
             {
                 QuestionState = QuestionState.Incorrect;
-#if SILVERLIGHT
                 StoryboardManager.PlayStoryboard("wrongAnswerAnimation", OnAnimationCompleted, null);
-#else
-                startWrongAnswer.Fire(this);
-#endif
             }
         }
     }
