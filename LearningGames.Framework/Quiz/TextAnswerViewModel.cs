@@ -74,7 +74,7 @@ namespace LearningGames.Framework.Quiz
         {
             get
             {
-                return problem.Content;
+                return problem;
             }
         }
 

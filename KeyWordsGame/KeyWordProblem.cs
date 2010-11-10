@@ -18,11 +18,6 @@ namespace LearningGames.KeyWords
             this.word = word;
         }
 
-        public override object Content
-        {
-            get { return word; }
-        }
-
         public string Word
         {
             get { return word; }

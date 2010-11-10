@@ -72,7 +72,7 @@ namespace LearningGames.KeyWords
 
         public object KeyWord
         {
-            get { return quiz.CurrentProblem.Content; }
+            get { return quiz.CurrentProblem; }
         }
 
         void OnIncorrectClick()

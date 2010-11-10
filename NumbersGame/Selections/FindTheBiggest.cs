@@ -6,9 +6,9 @@ using LearningGames.Framework.Quiz;
 using System.Windows.Controls;
 using System.Windows;
 
-namespace LearningGames.Numbers.Selections
+namespace LearningGames.Numbers
 {
-    class FindTheBiggest : MultiChoiceProblem
+    public class FindTheBiggest : MultiChoiceProblem
     {
         private int correctItemIndex;
 
@@ -29,11 +29,6 @@ namespace LearningGames.Numbers.Selections
                 label.Text = choice.ToString();
                 labels.Add(label);
             }
-        }
-
-        public override object Content
-        {
-            get { return "Find the Biggest"; }
         }
 
         public override ICollection<object> Choices

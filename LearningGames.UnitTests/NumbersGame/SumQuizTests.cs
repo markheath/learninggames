@@ -84,11 +84,5 @@ namespace LearningGames.UnitTests.NumbersGame
             sums[0].SubmitAnswer("2");
             Assert.AreEqual(1, sumQuiz.Right);
         }
-
-        [Test]
-        public void CanProvideBindableContent()
-        {
-            Assert.IsNotNull(sumQuiz.CurrentProblem.Content);
-        }
     }
 }
