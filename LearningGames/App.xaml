@@ -4,7 +4,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/NumbersGame;component/ResourceDictionary.xaml"/>
+                <!-- <ResourceDictionary Source="pack://application:,,,/NumbersGame;component/ResourceDictionary.xaml"/>-->
+                <ResourceDictionary Source="/NumbersGame;component/ResourceDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

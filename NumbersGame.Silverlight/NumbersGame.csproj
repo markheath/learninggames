@@ -131,11 +131,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="..\NumbersGame\ResourceDictionary.xaml">
+    <Resource Include="..\NumbersGame\ResourceDictionary.xaml">
       <Link>ResourceDictionary.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
+    </Resource>
     <Page Include="..\NumbersGame\ResultsPage.xaml">
       <Link>ResultsPage.xaml</Link>
       <SubType>Designer</SubType>
