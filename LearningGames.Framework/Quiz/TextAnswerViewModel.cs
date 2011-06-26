@@ -72,6 +72,14 @@ namespace LearningGames.Framework.Quiz
             }
         }
 
+        public object DataTemplate
+        {
+            get
+            {
+                return problem.DataTemplate;
+            }
+        }
+
         public string Answer
         {
             get

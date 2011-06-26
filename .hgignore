@@ -4,3 +4,4 @@ obj/
 .suo
 syntax: glob
 *.docstates
+*.orig
