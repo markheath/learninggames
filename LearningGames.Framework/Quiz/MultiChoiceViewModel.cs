@@ -10,7 +10,7 @@ using GalaSoft.MvvmLight.Command;
 
 namespace LearningGames.Framework.Quiz
 {
-    class MultiChoiceViewModel : ViewModelBase
+    public class MultiChoiceViewModel : ViewModelBase
     {
         private MultiChoiceProblem problem;
         public ObservableCollection<Button> Choices { get; private set; }
@@ -32,6 +32,14 @@ namespace LearningGames.Framework.Quiz
         public object Problem
         {
             get { return problem; }
+        }
+
+        public object DataTemplate
+        {
+            get
+            {
+                return problem.DataTemplate;
+            }
         }
 
         private Button CreateChoiceButton(object choice)
